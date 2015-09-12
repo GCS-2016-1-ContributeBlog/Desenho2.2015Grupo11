@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="214" key="dialogHeight"/>
+		<item value="314" key="dialogWidth"/>
+		<list key="textEntries">
+			<item value="1"/>
+		</list>
+		<list key="orderedElements">
+			<item value="org.eclipse.wst.server.ui.ServersView"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.e4.ui.parts"/>
+		</list>
+		<list key="textArray">
+			<item value="ser"/>
+		</list>
+	</section>
+	<section name="ImportExportAction">
+		<item value="org.eclipse.ui.wizards.import.ZipFile" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileImportWizard">
+		<item value="false" key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
+		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/home/karine/Downloads/openlogic-spring-3.0.5-all-bin-1.zip"/>
+			<item value="/home/karine/Downloads/spring-webmvc-3.2.0.RELEASE.jar.zip"/>
+			<item value="/home/karine/Downloads/slf4j.api-1.6.1.jar.zip"/>
+			<item value="/home/karine/Downloads/spring-aspects-3.2.3.RELEASE.jar"/>
+			<item value="/home/karine/Downloads/spring-aop-3.0.0.RELEASE.jar.zip"/>
+			<item value="/home/karine/Downloads/spring-beans-3.0.0.RELEASE.jar.zip"/>
+			<item value="/home/karine/Downloads/spring-context-3.0.2.RELEASE.jar.zip"/>
+			<item value="/home/karine/Downloads/spring-core-3.0.0.RELEASE.jar.zip"/>
+			<item value="/home/karine/Downloads/spring-jdbc-3.0.0.RELEASE.jar.zip"/>
+			<item value="/home/karine/Downloads/spring-web-3.0.2.RELEASE.jar.zip"/>
+			<item value="/home/karine/Downloads/spring-webmvc-3.0.0.RELEASE.jar.zip"/>
+			<item value="/home/karine/Downloads/commons-logging-1.2-bin.zip"/>
+			<item value="/home/karine/Downloads/spring-framework-4.0.1.RELEASE.zip"/>
+		</list>
+	</section>
+</section>
