@@ -17,7 +17,7 @@ public class ConnectionFactory {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conexao = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/contribute","root","root");
+			conexao = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/teste","root","root");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

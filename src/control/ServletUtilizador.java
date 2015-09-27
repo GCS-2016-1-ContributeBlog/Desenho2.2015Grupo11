@@ -49,8 +49,6 @@ public class ServletUtilizador extends HttpServlet {
 				this.rd.forward(request, response);
 				break;
 			case "Incluir":
-								
-				utilizador.setId(Integer.parseInt(request.getParameter("id")));
 				utilizador.setNome(request.getParameter("nome"));
 				utilizador.setSobrenome(request.getParameter("sobrenome"));
 				utilizador.setGenero(request.getParameter("genero"));

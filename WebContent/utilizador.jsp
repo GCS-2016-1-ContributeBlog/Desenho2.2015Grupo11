@@ -16,8 +16,6 @@
 		
 		
 		
-			<label>identificador: </label><input name="id" required  value="${utilizador.id}"
-					placeholder="2236541" /><br /> 
 				<label>Name:</label><input
 					name="nome" autofocus="autofocus" placeholder="Nome"  value="${utilizador.nome}"/><br />
 					<label>Sobrenome:</label><input
