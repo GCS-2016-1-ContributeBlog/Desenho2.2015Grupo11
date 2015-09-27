@@ -19,14 +19,13 @@ public class UtilizadorDAO  extends ConnectionFactory{
 		try {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
-					.prepareStatement("INSERT INTO Utilizador (id,nome,sobrenome,email,genero,senha,apelido) VALUES(?,?,?,?,?,?,?);");
-			pstm.setInt(1, utilizador.getId());
-			pstm.setString(2, utilizador.getNome());
-			pstm.setString(3, utilizador.getSobrenome());
-			pstm.setString(4, utilizador.getEmail());
-			pstm.setString(5, utilizador.getGenero());
-			pstm.setString(6, utilizador.getSenha());
-			pstm.setString(7, utilizador.getApelido());
+					.prepareStatement("INSERT INTO Utilizador (nome,sobrenome,email,genero,senha,apelido) VALUES(?,?,?,?,?,?);");
+			pstm.setString(1, utilizador.getNome());
+			pstm.setString(2, utilizador.getSobrenome());
+			pstm.setString(3, utilizador.getEmail());
+			pstm.setString(4, utilizador.getGenero());
+			pstm.setString(5, utilizador.getSenha());
+			pstm.setString(6, utilizador.getApelido());
 			pstm.execute();
 			pstm.close();
 			conexao.close();
