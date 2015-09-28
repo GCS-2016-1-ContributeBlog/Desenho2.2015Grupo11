@@ -12,27 +12,32 @@ import model.Utilizador;
 public class AutenticacaoDAO extends ConnectionFactory{
 	Utilizador utilizador = new Utilizador();
 	
+	
 	public Utilizador autenticarUtilizador(String email, String senha){
+		this.utilizador.setEmail("");
+		this.utilizador.setSenha("");
+		
 		try{
 			Connection conexao = getConexao();
 			Statement stm = conexao.createStatement();
-			ResultSet rs = stm.executeQuery("select * from Utilizador where email='" + email + "' and senha ='" + senha +"'");
+			ResultSet rs = stm.executeQuery("select * from Utilizador where email='"+ email+"' and senha='"+senha+"'" );
 			System.out.println("DAO TRY");
 			while(rs.next()){
-				System.out.println("DAO WHILE1");
-				//Utilizador utilizador = new Utilizador();
-				utilizador.setEmail(rs.getString("email"));
-				utilizador.setSenha(rs.getString("senha"));
-				System.out.println("DAO WHILE2");
+			
+				this.utilizador.setId(rs.getInt("id"));
+				this.utilizador.setNome(rs.getString("nome"));
+				this.utilizador.setSobrenome(rs.getString("sobrenome"));
+				this.utilizador.setGenero(rs.getString("genero"));
+				this.utilizador.setApelido(rs.getString("apelido"));
+				this.utilizador.setEmail(rs.getString("email"));
+				this.utilizador.setSenha(rs.getString("senha"));
 			}
 			rs.close();
 			conexao.close();
 		}catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("EXCEPTION DAO");
+			
 		}
-		
-		return utilizador;
-		
+		return this.utilizador;
 	}
 }

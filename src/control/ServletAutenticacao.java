@@ -20,8 +20,16 @@ import model.Utilizador;
 
 @WebServlet("/ServletAutenticacao")
 public class ServletAutenticacao extends HttpServlet{
-	private static final long serialVerionUID = 1L;
+	/**
+	 * Servlet de Autenticação de Login de usuário 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private RequestDispatcher rd;
+	private String email = "";
+	private String senha = "";
+	
+	
 	
 	public ServletAutenticacao(){
 		super();
@@ -34,36 +42,33 @@ public class ServletAutenticacao extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, 
 							IOException {
-		System.out.println("DO POST");
-		String email = request.getParameter("email");
-        String senha = request.getParameter("senha");
-        
+		this.email = request.getParameter("email");
+        this.senha = request.getParameter("senha");
+               
         AutenticacaoDAO autenticacaoDAO = new AutenticacaoDAO(); 
         Utilizador utilizador = new Utilizador();
-        System.out.println("INSTANCIA");
+        utilizador = autenticacaoDAO.autenticarUtilizador(this.email, this.senha);
         
-        utilizador = autenticacaoDAO.autenticarUtilizador(email, senha);
-        
-        boolean autorizacao = verificarUtilizador(utilizador, email, senha);
+        boolean autorizacao = verificarUtilizador(utilizador, this.email, this.senha);
         if(autorizacao==true){
+        	this.rd = request.getRequestDispatcher("listarUtilizadores.jsp");
+        	this.rd.forward(request, response);
+        }else{
         	this.rd = request.getRequestDispatcher("index.jsp");
         	this.rd.forward(request, response);
-        	System.out.println(email);
-        	System.out.println("AUTORIZADO");
-        }else{
-        	this.rd = request.getRequestDispatcher("login.jsp");
-        	this.rd.forward(request, response);
-        	System.out.println("Nao autorizado");
-        }
-        
+        }        
 	}
 	
 	public boolean verificarUtilizador(Utilizador utilizador, String email, String senha){
-		if(utilizador.getEmail() == email && utilizador.getSenha() == senha){
-			System.out.println("trueeee");
+	
+		/*Método de verificação de Utilizador  
+		 * Recebe uma instancia de utilizador 
+		 * e os paramêtros de comparação 
+		 * */
+		
+		if(utilizador.getEmail() != "" ){
 			return true;
 		}else{
-			System.out.println("false");
 			return false;
 		}
 		
