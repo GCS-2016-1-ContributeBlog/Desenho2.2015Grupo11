@@ -71,8 +71,51 @@ public class UtilizadorDAO  extends ConnectionFactory{
 		}
 	}
 	
+	public void editarUtilizador(Utilizador utilizador, String id){
+		System.out.println("que doença:"+ id);
+		try{
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao.prepareStatement("update Utilizador set nome=?, sobrenome=?, genero=?, senha=?, apelido=? where id=?");
+			pstm.setString(1, utilizador.getNome());
+			pstm.setString(2, utilizador.getSobrenome());
+			pstm.setString(3, utilizador.getGenero());
+			pstm.setString(4, utilizador.getSenha());
+			pstm.setString(5, utilizador.getApelido());
+			pstm.setString(6, id);
+			
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 	
-	
-	
+	public Utilizador listarPerfilUtilizador(String id) {
+		Utilizador utilizador = new Utilizador();
+		utilizador.setNome("");
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("Select * from Utilizador where id="+id);
+			while (rs.next()) {
+				utilizador.setId(rs.getInt("id"));
+				utilizador.setNome(rs.getString("nome"));
+				utilizador.setSobrenome(rs.getString("sobrenome"));
+				utilizador.setEmail(rs.getString("email"));
+				utilizador.setGenero(rs.getString("genero"));
+				utilizador.setSenha(rs.getString("senha"));
+				utilizador.setApelido(rs.getString("apelido"));
+			}
+			System.out.println("listarPerfil ENTRY!");
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return utilizador;
+	}
 	
 }
