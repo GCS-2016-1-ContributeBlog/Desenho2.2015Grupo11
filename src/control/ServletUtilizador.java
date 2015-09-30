@@ -85,10 +85,8 @@ public class ServletUtilizador extends HttpServlet {
 			
 			case "ListarPerfil":
 				id = request.getParameter("id");
-				System.out.println("Lista Perfil" +id);
 				utilizador = utilizadordao.listarPerfilUtilizador(id);
 				request.setAttribute("utilizador", utilizador);
-				System.out.println("Utilizador nome"+utilizador.getNome());
 				this.rd = request.getRequestDispatcher("editarUtilizador.jsp");
 				this.rd.forward(request, response);
 				

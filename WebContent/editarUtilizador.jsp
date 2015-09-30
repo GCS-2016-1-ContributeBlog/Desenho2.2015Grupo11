@@ -11,18 +11,17 @@
 		<form method="post" action="ServletUtilizador?acao=Editar">
 			<fieldset>
 				<legend>Editar Cadastro</legend>
-					<label>ID:</label><input name="id" autofocus="autofocus" placeholder="id" value="${utilizador.id}">
+					<input type="hidden" name="id" autofocus="autofocus" placeholder="id" value="${utilizador.id}">
 					<label>Nome:</label><input
 						name="nome" autofocus="autofocus" placeholder="Nome"  value="${utilizador.nome}"/><br />
 					<label>Sobrenome:</label><input
 						name="sobrenome" autofocus="autofocus" placeholder="Sobrenome"  value="${utilizador.sobrenome}"/><br />
-					<label>Email:</label><input
-						name="email" autofocus="autofocus" placeholder="Email"  value="${utilizador.email}"/><br />
+					<input type="hidden" name="email" autofocus="autofocus" placeholder="Email"  value="${utilizador.email}">
 						<label>Genero:</label><input
 						name="genero" autofocus="autofocus" placeholder="Genero"  value="${utilizador.genero}"/><br />
 						<label>Senha:</label><input
 						name="senha" autofocus="autofocus" placeholder="Senha"  value="${utilizador.senha}"/><br />
-						<label>Apelido:</label><input
+						<label>Apelido:</label><input type="hidden"
 						name="apelido" autofocus="autofocus" placeholder="Apelido"  value="${utilizador.apelido}"/><br />
 					<input type="submit" value="Enviar"> <input
 						type="reset" value="Limpar"> <br />

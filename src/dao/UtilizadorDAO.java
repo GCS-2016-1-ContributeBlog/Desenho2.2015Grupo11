@@ -72,7 +72,6 @@ public class UtilizadorDAO  extends ConnectionFactory{
 	}
 	
 	public void editarUtilizador(Utilizador utilizador, String id){
-		System.out.println("que doença:"+ id);
 		try{
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao.prepareStatement("update Utilizador set nome=?, sobrenome=?, genero=?, senha=?, apelido=? where id=?");
@@ -109,7 +108,6 @@ public class UtilizadorDAO  extends ConnectionFactory{
 				utilizador.setSenha(rs.getString("senha"));
 				utilizador.setApelido(rs.getString("apelido"));
 			}
-			System.out.println("listarPerfil ENTRY!");
 			stm.close();
 			conexao.close();
 		} catch (Exception e) {
