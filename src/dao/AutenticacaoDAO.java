@@ -21,7 +21,6 @@ public class AutenticacaoDAO extends ConnectionFactory{
 			Connection conexao = getConexao();
 			Statement stm = conexao.createStatement();
 			ResultSet rs = stm.executeQuery("select * from Utilizador where email='"+ email+"' and senha='"+senha+"'" );
-			System.out.println("DAO TRY");
 			while(rs.next()){
 			
 				this.utilizador.setId(rs.getInt("id"));

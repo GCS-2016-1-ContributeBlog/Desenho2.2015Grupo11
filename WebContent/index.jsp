@@ -37,7 +37,10 @@
 									</div>
 								</li>
 								<li class="special">
-									<a href="cadastro.jsp" class=""><span>Login</span></a>
+									<a href="cadastro.jsp" class=""><span>Cadastre-se</span></a>
+								</li>
+								<li class="special">
+									<a href="login.jsp" class=""><span>Login</span></a>
 								</li>
 							
 							</ul>
