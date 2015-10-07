@@ -37,6 +37,9 @@
 									</div>
 								</li>
 								<li class="special">
+									<a href="blog.jsp" class=""><span>Blog</span></a>
+								</li>
+								<li class="special">
 									<a href="cadastro.jsp" class=""><span>Cadastre-se</span></a>
 								</li>
 								<li class="special">
