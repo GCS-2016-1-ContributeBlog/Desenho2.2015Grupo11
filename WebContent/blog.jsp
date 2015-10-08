@@ -19,9 +19,6 @@
 						type="text" name="titulo" placeholder="UnB FGA"  value="${blog.titulo}"/><br />
 						<label>Categoria:</label><input
 						type="text" name="categoria"  placeholder="TCC"  value="${blog.categoria}"/><br />
-						<label>Data Criacao:</label><input
-						type="date" name="dataCriacao"  placeholder="xx/xx/xx"  value="${blog.dataCriacao}"/><br />
-	
 						
 					<input type="submit" value="Enviar"> <input
 						type="reset" value="Limpar"> <br />

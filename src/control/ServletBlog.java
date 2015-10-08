@@ -40,7 +40,6 @@ public class ServletBlog extends HttpServlet {
 		List<Blog> lista = new ArrayList<>();
 		BlogDAO blogdao = new BlogDAO();
 		Blog blog = new Blog();
-		Date agora = new Date();
 		
 		try {
 			switch (acao) {
@@ -49,7 +48,6 @@ public class ServletBlog extends HttpServlet {
 			case "Incluir":
 				blog.setTitulo(request.getParameter("titulo"));
 				blog.setCategoria(request.getParameter("categoria"));
-				blog.setDataCriacao((java.sql.Date) agora);
 			
 				blogdao.criarBlog(blog);
 				this.rd = request.getRequestDispatcher("index.jsp");

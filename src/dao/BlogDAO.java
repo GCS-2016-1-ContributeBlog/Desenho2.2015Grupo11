@@ -14,19 +14,17 @@ import model.Utilizador;
 public class BlogDAO extends ConnectionFactory {
 	
 Blog blog = new Blog();
+Date agora = new Date();
+java.sql.Date sqlDate = new java.sql.Date(agora.getTime());
 	
-	
-	public void criarBlog(Blog blog) {
-		
-		
-		
-		
+	public void criarBlog(Blog blog) {	
 		try {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
-					.prepareStatement("INSERT INTO Blog (titulo,categoria) VALUES(?,?);");
+					.prepareStatement("INSERT INTO Blog (titulo,categoria, dataCriacao) VALUES(?,?,?);");
 			pstm.setString(1, blog.getTitulo());
 			pstm.setString(2, blog.getCategoria());
+			pstm.setDate(3, sqlDate);
 			pstm.execute();
 			pstm.close();
 			conexao.close();
