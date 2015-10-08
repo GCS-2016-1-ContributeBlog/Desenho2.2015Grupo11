@@ -51,7 +51,8 @@ public class ServletAutenticacao extends HttpServlet{
         
         boolean autorizacao = verificarUtilizador(utilizador, this.email, this.senha);
         if(autorizacao==true){
-        	this.rd = request.getRequestDispatcher("listarUtilizadores.jsp");
+        	this.rd = request.getRequestDispatcher("painelAdministrativoUsuario.jsp");
+        	request.getSession().setAttribute("utilizador", utilizador);
         	this.rd.forward(request, response);
         }else{
         	this.rd = request.getRequestDispatcher("index.jsp");
