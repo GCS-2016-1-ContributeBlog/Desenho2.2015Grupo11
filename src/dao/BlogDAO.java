@@ -32,5 +32,28 @@ java.sql.Date sqlDate = new java.sql.Date(agora.getTime());
 			e.printStackTrace();
 		}
 	}
+	
+	public List<Blog> listarBlog() {
+		List<Blog> lista = new ArrayList<>();
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("Select * from Blog");
+			
+			while (rs.next()) {
+				Blog blog = new Blog();
+				blog.setIdBlog(rs.getInt("id"));
+				blog.setTitulo(rs.getString("titulo"));
+				blog.setCategoria(rs.getString("categoria"));
+				blog.setDataCriacao(rs.getDate("dataCriacao"));
+				lista.add(blog);
+			}
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
 
 }

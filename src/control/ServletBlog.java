@@ -54,12 +54,22 @@ public class ServletBlog extends HttpServlet {
 				this.rd.forward(request, response);
 				
 				break;
+				
+			case "Listar":
+				lista = blogdao.listarBlog();
+				request.setAttribute("listaBlog", lista);
+				this.rd = request.getRequestDispatcher("listarBlogs.jsp");
+				this.rd.forward(request, response);
+				break;
+				
 			case "Excluir":
 				
 				break;
+				
 			case "Editar":
 				
 				break;
+				
 			
 			default:
 				break;
