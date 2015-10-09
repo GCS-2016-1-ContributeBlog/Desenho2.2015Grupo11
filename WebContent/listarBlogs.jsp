@@ -24,11 +24,11 @@
 			</tr>
 			<c:forEach var="blog" items="${listaBlog}">
 				<tr>
-					<td>${blog.id}</td>
+					<td>${blog.idBlog}</td>
 					<td>${blog.titulo}</td>
 					<td>${blog.categoria}</td>
-					<td>${blog.dataCriação}</td>
 					
+					<td><a href="ServletBLog?acao=Excluir&idBlog=${blog.idBlog}">Excluir</a></td>
 				</tr>
 			</c:forEach>
 		</table>

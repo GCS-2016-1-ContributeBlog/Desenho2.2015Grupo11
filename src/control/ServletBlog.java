@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.GenericServlet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,14 +58,20 @@ public class ServletBlog extends HttpServlet {
 				
 			case "Listar":
 				lista = blogdao.listarBlog();
+				System.out.println(lista);
 				request.setAttribute("listaBlog", lista);
 				this.rd = request.getRequestDispatcher("listarBlogs.jsp");
 				this.rd.forward(request, response);
+				
 				break;
 				
 			case "Excluir":
+				String idBlog = request.getParameter("idBlog");				
+				blogdao.excluir(idBlog);
+				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd.forward(request, response);
 				
-				break;
+			break;
 				
 			case "Editar":
 				

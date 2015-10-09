@@ -42,10 +42,10 @@ java.sql.Date sqlDate = new java.sql.Date(agora.getTime());
 			
 			while (rs.next()) {
 				Blog blog = new Blog();
-				blog.setIdBlog(rs.getInt("id"));
+				blog.setIdBlog(rs.getInt("idBlog"));
 				blog.setTitulo(rs.getString("titulo"));
 				blog.setCategoria(rs.getString("categoria"));
-				blog.setDataCriacao(rs.getDate("dataCriacao"));
+				//blog.setDataCriacao(rs.getDate("dataCriacao"));
 				lista.add(blog);
 			}
 			stm.close();
@@ -54,6 +54,20 @@ java.sql.Date sqlDate = new java.sql.Date(agora.getTime());
 			e.printStackTrace();
 		}
 		return lista;
+	}
+	
+	public void excluir(String idBlog) {
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Delete from Blog where idBlog ="+idBlog);
+		
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
