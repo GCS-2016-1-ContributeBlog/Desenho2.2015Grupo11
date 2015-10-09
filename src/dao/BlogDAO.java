@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 
 import model.Blog;
-import model.Utilizador;
 
 public class BlogDAO extends ConnectionFactory {
 	
