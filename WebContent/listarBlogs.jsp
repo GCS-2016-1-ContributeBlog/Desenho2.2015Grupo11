@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -10,24 +13,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <div align="center">
-		<P>Lista de Utilizadores</P>
+		<P>Lista de Blogs</P>
 		<table >
 			<tr>
 				<td>ID</td>
-				<td>Nome</td>
+				<td>Titulo</td>
+				<td>Categoria</td>
+				<td>Data de Criação</td>
 			</tr>
-			<c:forEach var="utilizador" items="${listaUtilizador}">
+			<c:forEach var="blog" items="${listaBlog}">
 				<tr>
-					<td>${utilizador.id}</td>
-					<td>${utilizador.nome}</td>
-					<td><a href="ServletUtilizador?acao=ListarPerfil&id=${utilizador.id}">Editar</a></td>
-					<td><a href="ServletUtilizador?acao=Excluir&id=${utilizador.id}">Excluir</a></td>
+					<td>${blog.idBlog}</td>
+					<td>${blog.titulo}</td>
+					<td>${blog.categoria}</td>
+					
+					<td><a href="ServletBlog?acao=Excluir&idBlog=${blog.idBlog}">Excluir</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
 	<a href="index.jsp">Voltar</a>
+
 </body>
 </html>
