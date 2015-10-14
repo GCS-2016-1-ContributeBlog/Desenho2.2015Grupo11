@@ -2,19 +2,18 @@ package model;
 
 public class Utilizador {
 
-	int id;
-	public String nome;
-	String sobrenome;
-	String email;
-	String genero;
-	String senha;
-	String apelido;
+	private int id;
+	private String nome;
+	private String sobrenome;
+	private String email;
+	private String genero;
+	private String senha;
+	private String apelido;
 	
 	
 	
 	public Utilizador() {
 	}
-
 
 
 	public Utilizador(int id, String nome, String sobrenome, String email,

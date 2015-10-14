@@ -14,7 +14,8 @@
 					<legend>Cadastro de Blog</legend>
 			
 			
-			
+						<label>Id Dono Blog</label><input
+						type="text" name="idDonoBlog"  placeholder="Id"  value="${utilizador.id}"/><br />
 						<label>Título:</label><input
 						type="text" name="titulo" placeholder="UnB FGA"  value="${blog.titulo}"/><br />
 						<label>Categoria:</label><input

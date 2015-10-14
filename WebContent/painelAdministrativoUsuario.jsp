@@ -10,5 +10,6 @@
 	<P>Bem vindo, ${utilizador.nome}!</P>
 	<a href="ServletUtilizador?acao=ListarPerfil&id=${utilizador.id}">Editar Perfil</a>
 	<a href="ServletUtilizador?acao=Excluir&id=${utilizador.id}">Excluir Perfil</a>
+	<a href="blog.jsp?idDonoBlog=${utilizador.id}">Criar Blog</a>
 </body>
 </html>

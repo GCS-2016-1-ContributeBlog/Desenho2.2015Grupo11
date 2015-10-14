@@ -5,10 +5,11 @@ import java.sql.Date;
 public class Blog {
 
 	
-	int idBlog;
-	public String titulo;
-	String categoria;
-	Date dataCriacao;
+	private int idBlog;
+	private String titulo;
+	private String categoria;
+	private Date dataCriacao;
+	private DonoBlog idDonoBlog;
 	
 	
 	public Blog() {
@@ -16,12 +17,13 @@ public class Blog {
 
 
 
-	public Blog(int idBlog, String titulo, String categoria, Date dataCriacao) {
+	public Blog(int idBlog, String titulo, String categoria, Date dataCriacao, DonoBlog idDonoBlog) {
 
 		this.idBlog = idBlog;
 		this.titulo = titulo;
 		this.categoria = categoria;
 		this.dataCriacao = dataCriacao;
+		this.idDonoBlog = idDonoBlog;
 	}
 
 

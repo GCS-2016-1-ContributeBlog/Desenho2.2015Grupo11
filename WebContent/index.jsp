@@ -60,7 +60,7 @@
 							<p>Um outro Jeito de compartilhar<br />
 							</p>
 							<ul class="actions">
-								<li><a href="#" class="button special">Sign up </a></li>
+								<li><a href="login.jsp" class="button special">Sign up </a></li>
 							</ul>
 						</div>
 						<a href="#one" class="more scrolly">Saiba Mais ...</a>

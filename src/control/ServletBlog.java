@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.BlogDAO;
 import model.Blog;
+import model.DonoBlog;
+
+
 
 
 @WebServlet("/ServletBlog")
@@ -41,6 +44,7 @@ public class ServletBlog extends HttpServlet {
 		List<Blog> lista = new ArrayList<>();
 		BlogDAO blogdao = new BlogDAO();
 		Blog blog = new Blog();
+		DonoBlog donoBlog = new DonoBlog();
 		
 		try {
 			switch (acao) {
@@ -49,8 +53,10 @@ public class ServletBlog extends HttpServlet {
 			case "Incluir":
 				blog.setTitulo(request.getParameter("titulo"));
 				blog.setCategoria(request.getParameter("categoria"));
-			
-				blogdao.criarBlog(blog);
+				donoBlog.setId( Integer.parseInt(request.getParameter("idDonoBlog")));
+				
+				
+				blogdao.criarBlog(blog, donoBlog );
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);
 				
