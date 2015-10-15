@@ -50,8 +50,7 @@ public class ServletDonoBlog extends HttpServlet {
 			request.setAttribute("listaBlogDono", lista);
 			this.rd = request.getRequestDispatcher("listarBlogsDono.jsp");
 			this.rd.forward(request, response);
-			
-			
+		
 		break;
 	
 		
