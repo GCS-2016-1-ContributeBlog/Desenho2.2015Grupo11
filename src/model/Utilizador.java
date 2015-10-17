@@ -1,4 +1,5 @@
 package model;
+import java.util.Date;
 
 public class Utilizador {
 
@@ -9,7 +10,7 @@ public class Utilizador {
 	private String genero;
 	private String senha;
 	private String apelido;
-	
+	private Date dataNascimento;
 	
 	
 	public Utilizador() {
@@ -17,7 +18,7 @@ public class Utilizador {
 
 
 	public Utilizador(int id, String nome, String sobrenome, String email,
-			String genero, String senha, String apelido) {
+			String genero, String senha, String apelido, Date dataNascimento) {
 
 		this.id = id;
 		this.nome = nome;
@@ -26,6 +27,7 @@ public class Utilizador {
 		this.genero = genero;
 		this.senha = senha;
 		this.apelido = apelido;
+		this.dataNascimento = dataNascimento;
 	}
 
 
@@ -110,6 +112,16 @@ public class Utilizador {
 
 	public void setApelido(String apelido) {
 		this.apelido = apelido;
+	}
+
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 }

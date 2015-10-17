@@ -1,6 +1,9 @@
 package control;
 
 import java.io.IOException;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +58,11 @@ public class ServletUtilizador extends HttpServlet {
 				utilizador.setEmail(request.getParameter("email"));
 				utilizador.setSenha(request.getParameter("senha"));
 				utilizador.setApelido(request.getParameter("apelido"));
+				
+				String dataNascimento = request.getParameter("dataNascimento");
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				Date date = (Date) formatter.parse(dataNascimento);
+				utilizador.setDataNascimento(date);				
 			
 				utilizadordao.criarUtilizador(utilizador);
 				this.rd = request.getRequestDispatcher("index.jsp");

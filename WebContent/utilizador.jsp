@@ -20,6 +20,7 @@
 					name="nome" autofocus="autofocus" placeholder="Nome"  value="${utilizador.nome}"/><br />
 					<label>Sobrenome:</label><input
 					name="sobrenome" autofocus="autofocus" placeholder="Sobrenomeome"  value="${utilizador.sobrenome}"/><br />
+				 <label>Data Nascimento:</label><input type="date" name="dataNascimento" value="${utilizador.dataNascimento}"/><br /> 
 				 <label>Email:</label><input
 					type="email" name="email" placeholder="contribute@email.com.br"  value="${utilizador.email}"/><br />
 					<label>Genero:</label><input

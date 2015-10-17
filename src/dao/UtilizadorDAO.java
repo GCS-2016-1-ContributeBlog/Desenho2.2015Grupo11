@@ -1,9 +1,11 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,18 +16,20 @@ public class UtilizadorDAO  extends ConnectionFactory{
 	
 	Utilizador utilizador = new Utilizador();
 	
-	
 	public void criarUtilizador(Utilizador utilizador) {
 		try {
+			java.util.Date utilDate = utilizador.getDataNascimento();
+			java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
-					.prepareStatement("INSERT INTO Utilizador (nome,sobrenome,email,genero,senha,apelido) VALUES(?,?,?,?,?,?);");
+					.prepareStatement("INSERT INTO Utilizador (nome,sobrenome,email,genero,senha,apelido, dataNascimento) VALUES(?,?,?,?,?,?,?);");
 			pstm.setString(1, utilizador.getNome());
 			pstm.setString(2, utilizador.getSobrenome());
 			pstm.setString(3, utilizador.getEmail());
 			pstm.setString(4, utilizador.getGenero());
 			pstm.setString(5, utilizador.getSenha());
 			pstm.setString(6, utilizador.getApelido());
+			pstm.setDate(7, sqlDate);
 			pstm.execute();
 			pstm.close();
 			conexao.close();
