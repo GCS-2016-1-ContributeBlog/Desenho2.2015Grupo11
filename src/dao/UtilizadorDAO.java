@@ -51,6 +51,7 @@ public class UtilizadorDAO  extends ConnectionFactory{
 				utilizador.setEmail(rs.getString("email"));
 				utilizador.setSenha(rs.getString("senha"));
 				utilizador.setApelido(rs.getString("apelido"));
+				utilizador.setDataNascimento(rs.getDate("dataNascimento"));
 				lista.add(utilizador);
 			}
 			stm.close();
@@ -77,14 +78,18 @@ public class UtilizadorDAO  extends ConnectionFactory{
 	
 	public void editarUtilizador(Utilizador utilizador, String id){
 		try{
+			java.util.Date utilDate = utilizador.getDataNascimento();
+			java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 			Connection conexao = getConexao();
-			PreparedStatement pstm = conexao.prepareStatement("update Utilizador set nome=?, sobrenome=?, genero=?, senha=?, apelido=? where id=?");
+			PreparedStatement pstm = conexao.prepareStatement("update Utilizador set nome=?, sobrenome=?, genero=?, senha=?, apelido=?, dataNascimento=? where id=?");
 			pstm.setString(1, utilizador.getNome());
 			pstm.setString(2, utilizador.getSobrenome());
 			pstm.setString(3, utilizador.getGenero());
 			pstm.setString(4, utilizador.getSenha());
 			pstm.setString(5, utilizador.getApelido());
-			pstm.setString(6, id);
+			pstm.setDate(6, sqlDate);
+			
+			pstm.setString(7, id);
 			
 			pstm.execute();
 			pstm.close();
@@ -111,6 +116,7 @@ public class UtilizadorDAO  extends ConnectionFactory{
 				utilizador.setGenero(rs.getString("genero"));
 				utilizador.setSenha(rs.getString("senha"));
 				utilizador.setApelido(rs.getString("apelido"));
+				utilizador.setDataNascimento(rs.getDate("dataNascimento"));
 			}
 			stm.close();
 			conexao.close();

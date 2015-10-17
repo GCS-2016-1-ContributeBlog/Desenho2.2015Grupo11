@@ -42,6 +42,9 @@ public class ServletUtilizador extends HttpServlet {
 		UtilizadorDAO utilizadordao = new UtilizadorDAO();
 		Utilizador utilizador = new Utilizador();
 		
+		String dataNascimento = request.getParameter("dataNascimento");
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		
 		try {
 			switch (acao) {
 				
@@ -59,8 +62,7 @@ public class ServletUtilizador extends HttpServlet {
 				utilizador.setSenha(request.getParameter("senha"));
 				utilizador.setApelido(request.getParameter("apelido"));
 				
-				String dataNascimento = request.getParameter("dataNascimento");
-				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				
 				Date date = (Date) formatter.parse(dataNascimento);
 				utilizador.setDataNascimento(date);				
 			
@@ -84,6 +86,9 @@ public class ServletUtilizador extends HttpServlet {
 				utilizador.setGenero(request.getParameter("genero"));
 				utilizador.setSenha(request.getParameter("senha"));
 				utilizador.setApelido(request.getParameter("apelido"));
+				
+				Date data = (Date) formatter.parse(dataNascimento);
+				utilizador.setDataNascimento(data);
 				
 				utilizadordao.editarUtilizador(utilizador, id);
 				this.rd = request.getRequestDispatcher("listarUtilizadores.jsp");

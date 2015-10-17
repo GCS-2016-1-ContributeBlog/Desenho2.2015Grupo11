@@ -30,6 +30,7 @@ public class AutenticacaoDAO extends ConnectionFactory{
 				this.utilizador.setApelido(rs.getString("apelido"));
 				this.utilizador.setEmail(rs.getString("email"));
 				this.utilizador.setSenha(rs.getString("senha"));
+				this.utilizador.setDataNascimento(rs.getDate("dataNascimento"));
 			}
 			rs.close();
 			conexao.close();
