@@ -4,31 +4,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Criar Blog</title>
+<title>Criar Publicacao</title>
 </head>
 <body>
-
 	<div align="center">
-			<form method="post" action="ServletBlog?acao=Incluir">
+			<form method="post" action="ServletPublicacao?acao=Incluir">
 				<fieldset>
-					<legend>Cadastro de Blog</legend>
-			
-			
-						<input
-						type="hidden" name="idDonoBlog"  placeholder="Id"  value="${utilizador.id}"/><br />
+					<legend>Nova Publicação</legend>
 						<label>Título:</label><input
-						type="text" name="titulo" placeholder="UnB FGA"  value="${blog.titulo}"/><br />
+						type="text" name="tituloPublicacao" placeholder="Titulo Publicação"  value="${publicacao.tituloPublicacao}"/><br />
 						<label>Categoria:</label><input
-						type="text" name="categoria"  placeholder="TCC"  value="${blog.categoria}"/><br />
+						type="text" name="categoriaPublicacao"  placeholder="Categoria"  value="${publicacao.categoriaPublicacao}"/><br />
+						<label>Conteúdo:</label><input 
+						type="textarea" rows="4" cols="50" name="conteudoPublicacao" placeholder="Escreva o conteúdo aqui" value="${publicacao.conteudoPublicacao}"/>
 						
 					<input type="submit" value="Enviar"> <input
 						type="reset" value="Limpar"> <br />
 				</fieldset>
 			</form>
-			<a href="ServletBlog?acao=Listar">Listar os Blogs</a><br>
 			<a href="index.jsp">Voltar</a>
-			
-		</div>
 
 </body>
 </html>

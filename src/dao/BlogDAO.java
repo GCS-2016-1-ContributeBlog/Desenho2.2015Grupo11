@@ -13,9 +13,9 @@ import model.DonoBlog;
 
 public class BlogDAO extends ConnectionFactory {
 	
-Blog blog = new Blog();
-Date agora = new Date();
-java.sql.Date sqlDate = new java.sql.Date(agora.getTime());
+	Blog blog = new Blog();
+	Date agora = new Date();
+	java.sql.Date sqlDate = new java.sql.Date(agora.getTime());
 	
 	public void criarBlog(Blog blog, DonoBlog donoBlog) {	
 		try {
