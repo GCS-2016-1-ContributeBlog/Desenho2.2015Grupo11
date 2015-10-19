@@ -17,11 +17,13 @@
 					<label>Sobrenome:</label><input
 						name="sobrenome" autofocus="autofocus" placeholder="Sobrenome"  value="${utilizador.sobrenome}"/><br />
 					<input type="hidden" name="email" autofocus="autofocus" placeholder="Email"  value="${utilizador.email}">
+						<label>Data Nascimento:</label><input type="date" name="dataNascimento" value="${utilizador.dataNascimento}"/><br />
 						<label>Genero:</label><input
 						name="genero" autofocus="autofocus" placeholder="Genero"  value="${utilizador.genero}"/><br />
 						<label>Senha:</label><input
 						name="senha" autofocus="autofocus" placeholder="Senha"  value="${utilizador.senha}"/><br />
-						<label>Apelido:</label><input type="hidden"
+						
+						<input type="hidden"
 						name="apelido" autofocus="autofocus" placeholder="Apelido"  value="${utilizador.apelido}"/><br />
 					<input type="submit" value="Enviar"> <input
 						type="reset" value="Limpar"> <br />

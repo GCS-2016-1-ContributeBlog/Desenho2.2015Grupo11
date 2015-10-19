@@ -40,7 +40,7 @@
 									<a href="ServletBlog?acao=Listar" class=""><span>Listar Blogs</span></a>
 								</li>
 								<li class="special">
-									<a href="cadastro.jsp" class=""><span>Cadastre-se</span></a>
+									<a href="utilizador.jsp" class=""><span>Cadastre-se</span></a>
 								</li>
 								<li class="special">
 									<a href="login.jsp" class=""><span>Login</span></a>
