@@ -56,14 +56,7 @@ java.sql.Date sqlDate = new java.sql.Date(agora.getTime());
 		}
 		return lista;
 	}
-	
-	
-	
 
-	
-	
-	
-	
 	
 	public void excluir(String idBlog) {
 		try {

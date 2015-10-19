@@ -78,13 +78,11 @@ public class ServletBlog extends HttpServlet {
 				this.rd.forward(request, response);
 				
 			break;
-			
-		
-			
 				
-			case "Editar":
+			case "listarBlogEspecifico":
 				
-				break;
+				
+			break;
 				
 			
 			default:

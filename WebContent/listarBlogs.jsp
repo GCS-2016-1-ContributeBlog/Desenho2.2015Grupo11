@@ -28,7 +28,7 @@
 					<td>${blog.titulo}</td>
 					<td>${blog.categoria}</td>
 					
-					<td><a href="ServletBlog?acao=Excluir&idBlog=${blog.idBlog}">Excluir</a></td>
+					<td><a href="ServletBlog?acao=listarBlogEspecifico&idBlog=${blog.idBlog}">Ver</a></td>
 				</tr>
 			</c:forEach>
 		</table>
