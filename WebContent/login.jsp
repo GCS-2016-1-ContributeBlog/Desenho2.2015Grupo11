@@ -1,57 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Contribute Blog</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/js/login.css" />
-    <script src="assets/js/login.js"></script>
-
-	</head>
-	<body>
-
-	
-	    <div class="container">
-	      <div class="row">
-	          <div class="col-md-12">
-	              <div class="pr-wrap">
-	                  <div class="pass-reset">
-	                      <label>
-	                          Enter the email you signed up with</label>
-	                      <input type="email" placeholder="Email" />
-	                      <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
-	                  </div>
-	              </div>
-	              <div class="wrap">
-	                  <p class="form-title">
-	                      Sign In</p>
-	                  <form action="ServletAutenticacao" method="post">
-	                  <input type="text" placeholder="Email" name="email" value="${utilizador.email}" />
-	                  <input type="password" placeholder="Senha" name="senha" value="${utilizador.senha}"/>
-	                  <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
-	                  <div class="remember-forgot">
-	                      <div class="row">
-	                          <div class="col-md-6">
-	                              <div class="checkbox">
-	                                  <label>
-	                                      <input type="checkbox" />
-	                                      Remember Me
-	                                  </label>
-	                              </div>
-	                          </div>
-	                          <div class="col-md-6 forgot-pass-content">
-	                              <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
-	                          </div>
-	                      </div>
-	                  </div>
-	                  </form>
-	              </div>
-	          </div>
-	      </div>
-	    </div>
-	
-	</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+%>
+    <!DOCTYPE HTML>
+    <html>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/login.css" rel="stylesheet">
+        <script src="assets/js/bootstrap.min.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        
+        <head>
+            <title>
+                Contribute Blog - Entrar
+            </title>
+        </head>
+        
+        <body background="images/cinza.png" bgproperties="fixed">
+         
+            <div class="container">
+    <div class="row">
+		<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Preencha para entrar</h3>
+			 	</div>
+			  	<div class="panel-body">
+			  	<form action="ServletAutenticacao" method="post" accept-charset="UTF-8" role="form">
+                    <fieldset>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" placeholder="E-mail" name="email" type="text" value="${utilizador.email}">
+			    		</div>
+			    		<div class="form-group">
+			    			<input class="form-control" placeholder="Senha" name="senha" type="password" value="${utilizador.senha}">
+			    		</div>
+			    		<div class="checkbox">
+			    	    	<label>
+			    	    		<input name="remember" type="checkbox" value="Remember Me"> Lembrar
+			    	    	</label>
+			    	    </div>
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+			    	</fieldset>
+			      	</form>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+        </body>
+    
+    </html>
