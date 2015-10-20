@@ -27,13 +27,14 @@
 					<td>${blog.idBlog}</td>
 					<td>${blog.titulo}</td>
 					<td>${blog.categoria}</td>
+					<td>${blog.dataCriacao}</td>
 					
+					<td><a href="ServletPublicacao?acao=InstanciaPublicacao&idBlog=${blog.idBlog}">Criar Publicacação</a></td>
 					<td><a href="ServletBlog?acao=Excluir&idBlog=${blog.idBlog}">Excluir</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
 	<a href="index.jsp">Voltar</a>
-
 </body>
 </html>
