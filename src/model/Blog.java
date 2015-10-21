@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Blog {
 
@@ -10,6 +12,7 @@ public class Blog {
 	private String categoria;
 	private Date dataCriacao;
 	private DonoBlog idDonoBlog;
+	private List<Publicacao> publicacoes;
 	
 	
 	public Blog() {
@@ -17,13 +20,15 @@ public class Blog {
 
 
 
-	public Blog(int idBlog, String titulo, String categoria, Date dataCriacao, DonoBlog idDonoBlog) {
+	public Blog(int idBlog, String titulo, String categoria, Date dataCriacao, DonoBlog idDonoBlog, 
+			ArrayList<Publicacao> publicacoes) {
 
 		this.idBlog = idBlog;
 		this.titulo = titulo;
 		this.categoria = categoria;
 		this.dataCriacao = dataCriacao;
 		this.idDonoBlog = idDonoBlog;
+		this.publicacoes = publicacoes;
 	}
 
 
@@ -71,6 +76,18 @@ public class Blog {
 
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
+	}
+
+
+
+	public List<Publicacao> getPublicacoes() {
+		return publicacoes;
+	}
+
+
+
+	public void setPublicacoes(List<Publicacao> publicacoes) {
+		this.publicacoes = publicacoes;
 	}
 	
 }

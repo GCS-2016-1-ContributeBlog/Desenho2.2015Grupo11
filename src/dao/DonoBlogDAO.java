@@ -27,7 +27,7 @@ public class DonoBlogDAO extends ConnectionFactory{
 				blog.setIdBlog(rs.getInt("idBlog"));
 				blog.setTitulo(rs.getString("titulo"));
 				blog.setCategoria(rs.getString("categoria"));
-				//blog.setDataCriacao(rs.getDate("dataCriacao"));
+				blog.setDataCriacao(rs.getDate("dataCriacao"));
 				lista.add(blog);
 				
 			}

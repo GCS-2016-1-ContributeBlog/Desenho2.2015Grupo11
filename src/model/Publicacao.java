@@ -5,17 +5,19 @@ public class Publicacao {
 	private String tituloPublicacao;
 	private String categoriaPublicacao;
 	private String conteudoPublicacao;
+	private Blog idBlog;
 	
 	public Publicacao(){
 		
 	}
 	
 	public Publicacao(int idPublicacao, String tituloPublicacao, String categoriaPublicacao, 
-			String conteudoPublicacao){
+			String conteudoPublicacao, Blog idBlog){
 		this.idPublicacao = idPublicacao;
 		this.tituloPublicacao = tituloPublicacao;
 		this.categoriaPublicacao = categoriaPublicacao;
 		this.conteudoPublicacao = conteudoPublicacao;
+		this.idBlog = idBlog;
 	}
 	
 	public int getIdPublicacao() {

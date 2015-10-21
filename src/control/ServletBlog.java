@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.BlogDAO;
 import model.Blog;
 import model.DonoBlog;
+import model.Publicacao;
 
 
 
@@ -42,6 +43,7 @@ public class ServletBlog extends HttpServlet {
 		String destino = "sucesso.jsp";
 		String mensagem = "";
 		List<Blog> lista = new ArrayList<>();
+		List<Publicacao> listaPublicacao = new ArrayList<>();
 		BlogDAO blogdao = new BlogDAO();
 		Blog blog = new Blog();
 		DonoBlog donoBlog = new DonoBlog();
@@ -57,7 +59,7 @@ public class ServletBlog extends HttpServlet {
 				
 				
 				blogdao.criarBlog(blog, donoBlog );
-				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd = request.getRequestDispatcher("ServletDonoBlog?acao=ListarDono&idDonoBlog.jsp");
 				this.rd.forward(request, response);
 				
 				break;
@@ -79,10 +81,23 @@ public class ServletBlog extends HttpServlet {
 				
 			break;
 				
-			case "listarBlogEspecifico":
+			case "ListarPublicacoes":
 				
-				
+				String idBlogP =  request.getParameter("idBlog") ;				
+				listaPublicacao = blogdao.listarPublicacaoBlog(idBlogP);
+				request.setAttribute("listaPublicacaoBlog", listaPublicacao);
+				this.rd = request.getRequestDispatcher("listarPublicacao.jsp");
+				this.rd.forward(request, response);
+			
 			break;
+			
+			case "InstanciaPublicacao":
+				String idBlogI = request.getParameter("idBlog");
+				System.out.println(idBlogI);
+				request.setAttribute("idBlog", idBlogI);
+				this.rd = request.getRequestDispatcher("painelAdministrativoBlog.jsp");
+				this.rd.forward(request, response);
+				break;
 				
 			
 			default:

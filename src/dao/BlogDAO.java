@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.Blog;
 import model.DonoBlog;
+import model.Publicacao;
 
 public class BlogDAO extends ConnectionFactory {
 	
@@ -70,6 +71,30 @@ public class BlogDAO extends ConnectionFactory {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public List<Publicacao> listarPublicacaoBlog(String idBlog) {
+		List<Publicacao> lista = new ArrayList<>();
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("Select * from Publicacao where idBlog=" + idBlog);
+			
+			while (rs.next()) {
+				Publicacao publicacao = new Publicacao();
+				publicacao.setIdPublicacao(rs.getInt("idPublicacao"));
+				publicacao.setTituloPublicacao(rs.getString("tituloPublicacao"));
+				publicacao.setCategoriaPublicacao(rs.getString("categoriaPublicacao"));
+				publicacao.setConteudoPublicacao(rs.getString("conteudoPublicacao"));
+				lista.add(publicacao);
+				
+			}
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 }
