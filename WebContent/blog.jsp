@@ -30,11 +30,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Título</label>
-                                    <input type="text" name="titulo" id="titulo" class="form-control input-sm" value="${blog.titulo}" placeholder="E ai corredor!?" required>
+                                    <input type="text" name="titulo" id="titulo" class="form-control input-sm" value="${blog.titulo}" placeholder="E ai corredor?!" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Categoria</label>
-                                    <input type="text" name="categoria" id="categoria" class="form-control input-sm" value="${blog.categoria}" placeholder="Esportes de corrida" required>
+                                    <input type="text" name="categoria" id="categoria" class="form-control input-sm" value="${blog.categoria}" placeholder="Esporte de corrida" required>
                                 </div>
                                 <input type="submit" value="Enviar" class="btn btn-info btn-sm">
                                 <a href="ServletBlog?acao=Listar" class="btn btn-primary btn-sm" role="button">Listar todos Blogs</a>
