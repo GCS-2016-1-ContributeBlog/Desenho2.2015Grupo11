@@ -17,21 +17,20 @@
 		<P>Lista de Blogs</P>
 		<table >
 			<tr>
-				<td>ID</td>
+				<!--<td>ID</td>-->
 				<td>Titulo</td>
 				<td>Categoria</td>
 				<td>Data de Criação</td>
 			</tr>
 			<c:forEach var="blog" items="${listaBlogDono}">
 				<tr>
-					<td>${blog.idBlog}</td>
+					<!-- <td>${blog.idBlog}</td>-->
 					<td>${blog.titulo}</td>
 					<td>${blog.categoria}</td>
 					<td>${blog.dataCriacao}</td>
 					
-					<td><a href="ServletPublicacao?acao=InstanciaPublicacao&idBlog=${blog.idBlog}">Criar Publicacação</a></td>
-					<td><a href="ServletBlog?acao=Excluir&idBlog=${blog.idBlog}">Excluir</a></td>
-					<td><a href="ServletBlog?acao=ListarPublicacoes&idBlog=${blog.idBlog}">VerPublicacoes</a>
+					<td><a href="ServletBlog?acao=InstanciaPublicacao&idBlog=${blog.idBlog}">Ver Painel do Blog</a>
+					
 				</tr>
 			</c:forEach>
 		</table>

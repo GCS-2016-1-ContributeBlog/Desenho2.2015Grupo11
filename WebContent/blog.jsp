@@ -25,8 +25,7 @@
 						type="reset" value="Limpar"> <br />
 				</fieldset>
 			</form>
-			<a href="ServletBlog?acao=Listar">Listar os Blogs</a><br>
-			<a href="index.jsp">Voltar</a>
+			<a href="painelAdministrativoUsuario.jsp">Voltar</a>
 			
 		</div>
 

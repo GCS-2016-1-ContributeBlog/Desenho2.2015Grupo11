@@ -59,7 +59,7 @@ public class ServletBlog extends HttpServlet {
 				
 				
 				blogdao.criarBlog(blog, donoBlog );
-				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd = request.getRequestDispatcher("ServletDonoBlog?acao=ListarDono&idDonoBlog.jsp");
 				this.rd.forward(request, response);
 				
 				break;
@@ -90,6 +90,14 @@ public class ServletBlog extends HttpServlet {
 				this.rd.forward(request, response);
 			
 			break;
+			
+			case "InstanciaPublicacao":
+				String idBlogI = request.getParameter("idBlog");
+				System.out.println(idBlogI);
+				request.setAttribute("idBlog", idBlogI);
+				this.rd = request.getRequestDispatcher("painelAdministrativoBlog.jsp");
+				this.rd.forward(request, response);
+				break;
 				
 			
 			default:

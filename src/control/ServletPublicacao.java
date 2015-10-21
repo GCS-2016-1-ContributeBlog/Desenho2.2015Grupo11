@@ -43,6 +43,7 @@ public class ServletPublicacao extends HttpServlet{
 			
 			
 			case "Incluir":
+				String socorre = request.getParameter("idBlog");
 				publicacao.setTituloPublicacao(request.getParameter("tituloPublicacao"));
 				publicacao.setCategoriaPublicacao(request.getParameter("categoriaPublicacao"));
 				publicacao.setConteudoPublicacao(request.getParameter("conteudoPublicacao"));
