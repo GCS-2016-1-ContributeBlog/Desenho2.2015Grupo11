@@ -31,6 +31,7 @@
 					
 					<td><a href="ServletPublicacao?acao=InstanciaPublicacao&idBlog=${blog.idBlog}">Criar Publicacação</a></td>
 					<td><a href="ServletBlog?acao=Excluir&idBlog=${blog.idBlog}">Excluir</a></td>
+					<td><a href="ServletBlog?acao=ListarPublicacoes&idBlog=${blog.idBlog}">VerPublicacoes</a>
 				</tr>
 			</c:forEach>
 		</table>
