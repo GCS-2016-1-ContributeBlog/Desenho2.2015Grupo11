@@ -60,6 +60,26 @@ public class ServletPublicacao extends HttpServlet{
 				this.rd = request.getRequestDispatcher("criarPublicacao.jsp");
 				this.rd.forward(request, response);
 				break;
+			
+			case "EditarPublicacao":
+				String idPublicacao = request.getParameter("idPublicacao");
+				
+				publicacao.setTituloPublicacao(request.getParameter("tituloPublicacao"));
+				publicacao.setCategoriaPublicacao(request.getParameter("categoriaPublicacao"));
+				publicacao.setConteudoPublicacao(request.getParameter("conteudoPublicacao"));
+				
+				publicacaoDAO.editarPublicacao(publicacao, idPublicacao);
+				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd.forward(request, response);
+				
+				break;
+				
+			case "ListarPublicacao":
+				idPublicacao = request.getParameter("idPublicacao");
+				publicacao = publicacaoDAO.listarCorpoPublicacao(idPublicacao);
+				request.setAttribute("publicacao", publicacao);
+				this.rd = request.getRequestDispatcher("editarPublicacao.jsp");
+				this.rd.forward(request, response);
 			}
 			
 		}catch(Exception e){

@@ -26,6 +26,8 @@
 					<td>${publicacao.tituloPublicacao}</td>
 					<td>${publicacao.categoriaPublicacao}</td>
 					<td>${publicacao.conteudoPublicacao}</td>
+					
+					<td><a href="ServletPublicacao?acao=ListarPublicacao&idPublicacao=${publicacao.idPublicacao}">Editar Publicacao</a></td>
 			
 				</tr>
 			</c:forEach>
