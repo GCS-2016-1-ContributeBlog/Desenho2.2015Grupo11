@@ -81,4 +81,17 @@ public class PublicacaoDAO extends ConnectionFactory{
 		}
 		return publicacao;
 	}
+	
+	public void excluirPublicacao(String idPublicacao){
+		try{
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao.prepareStatement("Delete from Publicacao where idPublicacao =" +idPublicacao);
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 }

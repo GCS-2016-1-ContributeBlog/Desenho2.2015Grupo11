@@ -43,7 +43,6 @@ public class ServletPublicacao extends HttpServlet{
 			
 			
 			case "Incluir":
-				String socorre = request.getParameter("idBlog");
 				publicacao.setTituloPublicacao(request.getParameter("tituloPublicacao"));
 				publicacao.setCategoriaPublicacao(request.getParameter("categoriaPublicacao"));
 				publicacao.setConteudoPublicacao(request.getParameter("conteudoPublicacao"));
@@ -55,7 +54,6 @@ public class ServletPublicacao extends HttpServlet{
 				break;
 			case "InstanciaPublicacao":
 				String idBlog = request.getParameter("idBlog");
-				System.out.println(idBlog);
 				request.setAttribute("idBlog", idBlog);
 				this.rd = request.getRequestDispatcher("criarPublicacao.jsp");
 				this.rd.forward(request, response);
@@ -80,6 +78,14 @@ public class ServletPublicacao extends HttpServlet{
 				request.setAttribute("publicacao", publicacao);
 				this.rd = request.getRequestDispatcher("editarPublicacao.jsp");
 				this.rd.forward(request, response);
+				break;
+			
+			case "ExcluirPublicacao":
+				idPublicacao = request.getParameter("idPublicacao");
+				publicacaoDAO.excluirPublicacao(idPublicacao);
+				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd.forward(request, response);	
+				break;
 			}
 			
 		}catch(Exception e){
