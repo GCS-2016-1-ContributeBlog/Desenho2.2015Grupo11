@@ -92,6 +92,20 @@ public class PublicacaoDAO extends ConnectionFactory{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+	}
+	
+	public void avaliarPublicacao(String nota, String idPublicacao){
+		try{
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao.prepareStatement("Update Publicacao set notaPublicacao = notaPublicacao + 1 where idPublicacao = ?");
+			//pstm.setInt(1, publicacao.getNota());
+			pstm.setString(1, idPublicacao);
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+			
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

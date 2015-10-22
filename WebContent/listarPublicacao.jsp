@@ -27,6 +27,7 @@
 					<td>${publicacao.categoriaPublicacao}</td>
 					<td>${publicacao.conteudoPublicacao}</td>
 					
+					<td><a href="ServletPublicacao?acao=AvaliarPublicacao&idPublicacao=${publicacao.idPublicacao}&notaPublicacao=1">Avaliar</a></td>
 					<td><a href="ServletPublicacao?acao=ListarPublicacao&idPublicacao=${publicacao.idPublicacao}">Editar Publicacao</a></td>
 					<td><a href="ServletPublicacao?acao=ExcluirPublicacao&idPublicacao=${publicacao.idPublicacao}">Excluir Publicacao</a></td>
 				</tr>
