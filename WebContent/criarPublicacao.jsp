@@ -37,11 +37,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Categoria</label>
-                                    <input type="text" name="categoria" id="categoria" class="form-control input-sm" value="${publicacao.categoriaPublicacao}" placeholder="Categoria" required>
+                                    <input type="text" name="categoriaPublicacao" id="categoriaPublicacao" class="form-control input-sm" value="${publicacao.categoriaPublicacao}" placeholder="Categoria" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Conteúdo</label>
-                                    <input type="textarea" rows="4" cols="50" name="conteudoPublicacao" id="categoria" class="form-control input-sm" value="${publicacao.conteudoPublicacao}" placeholder="Escreva o conteúdo aqui" required>
+                                    <textarea class="form-control" maxlength="150" rows="3" name="conteudoPublicacao" id="categoria" value="${publicacao.conteudoPublicacao}" placeholder="Escreva o conteúdo aqui" required></textarea>
                                 </div>
                                 <input type="submit" value="Enviar" class="btn btn-info btn-sm">
                                 <input type="reset" value="Limpar" class="btn btn-warning btn-sm">
