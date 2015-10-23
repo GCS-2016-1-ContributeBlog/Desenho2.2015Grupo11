@@ -25,7 +25,7 @@ public class PublicacaoDAO extends ConnectionFactory{
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao.
 					prepareStatement("INSERT INTO Publicacao (tituloPublicacao, categoriaPublicacao, "
-							+ "conteudoPublicacao, idBlog) VALUES (?,?,?,?)");
+							+ "conteudoPublicacao, idBlog, notaPublicacao) VALUES (?,?,?,?,0)");
 			pstm.setString(1, publicacao.getTituloPublicacao());
 			pstm.setString(2, publicacao.getCategoriaPublicacao());
 			pstm.setString(3, publicacao.getConteudoPublicacao());
@@ -92,6 +92,20 @@ public class PublicacaoDAO extends ConnectionFactory{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+	}
+	
+	public void avaliarPublicacao(Publicacao publicacao, String nota, String idPublicacao){
+		try{
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao.prepareStatement("Update Publicacao set notaPublicacao = notaPublicacao + ? where idPublicacao = ?");
+			pstm.setInt(1, publicacao.getNota());
+			pstm.setString(2, idPublicacao);
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+			
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

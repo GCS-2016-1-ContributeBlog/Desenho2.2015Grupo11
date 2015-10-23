@@ -103,7 +103,6 @@ public class ServletBlog extends HttpServlet {
 			
 			case "InstanciaPublicacao":
 				String idBlogI = request.getParameter("idBlog");
-				System.out.println(idBlogI);
 				request.setAttribute("idBlog", idBlogI);
 				this.rd = request.getRequestDispatcher("painelAdministrativoBlog.jsp");
 				this.rd.forward(request, response);

@@ -86,7 +86,19 @@ public class ServletPublicacao extends HttpServlet{
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);	
 				break;
+				
+			case "AvaliarPublicacao":
+				idPublicacao = request.getParameter("idPublicacao");
+				String notaPublicacao = request.getParameter("notaPublicacao");
+				int notaAtual = publicacao.getNota();
+				int notaFinal = notaAtual+Integer.parseInt(notaPublicacao);
+				publicacao.setNota(notaFinal);
+				publicacaoDAO.avaliarPublicacao(publicacao, notaPublicacao, idPublicacao);
+				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd.forward(request, response);	
+				break;
 			}
+			
 			
 		}catch(Exception e){
 			// TODO: handle exception

@@ -6,18 +6,21 @@ public class Publicacao {
 	private String categoriaPublicacao;
 	private String conteudoPublicacao;
 	private Blog idBlog;
+	private int nota;
 	
 	public Publicacao(){
 		
 	}
 	
 	public Publicacao(int idPublicacao, String tituloPublicacao, String categoriaPublicacao, 
-			String conteudoPublicacao, Blog idBlog){
+			String conteudoPublicacao, Blog idBlog, int nota){
 		this.idPublicacao = idPublicacao;
 		this.tituloPublicacao = tituloPublicacao;
 		this.categoriaPublicacao = categoriaPublicacao;
 		this.conteudoPublicacao = conteudoPublicacao;
 		this.idBlog = idBlog;
+		this.nota = nota;
+		
 	}
 	
 	public int getIdPublicacao() {
@@ -44,4 +47,13 @@ public class Publicacao {
 	public void setConteudoPublicacao(String conteudoPublicacao) {
 		this.conteudoPublicacao = conteudoPublicacao;
 	}
+
+	public int getNota() {
+		return nota;
+	}
+
+	public void setNota(int nota) {
+		this.nota = nota;
+	}
+	
 }
