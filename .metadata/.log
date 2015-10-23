@@ -1,0 +1,17 @@
+!SESSION 2015-10-23 13:52:47.455 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -data /home/murilo/Desktop/workspace/Desenho2.2015Grupo11 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.jboss.tools.central 4 0 2015-10-23 13:53:09.212
+!MESSAGE Unable to open /home/murilo/Programs/eclipse/plugins/org.jboss.tools.central_2.0.0.CR1-v20150916-0301-B35/resources/jbosstools-central-webpage.zip
+!STACK 0
+java.io.IOException: /home/murilo/Desktop/workspace/Desenho2.2015Grupo11/.metadata/.plugins/org.jboss.tools.central/central/d156659/index.html can not be found
+	at org.jboss.tools.central.internal.CentralHelper.extractIfNeeded(CentralHelper.java:190)
+	at org.jboss.tools.central.internal.CentralHelper.getCentralPageUrl(CentralHelper.java:120)
+	at org.jboss.tools.central.internal.CentralHelper.getCentralUrl(CentralHelper.java:58)
+	at org.jboss.tools.central.editors.GettingStartedHtmlPage$5.run(GettingStartedHtmlPage.java:255)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
