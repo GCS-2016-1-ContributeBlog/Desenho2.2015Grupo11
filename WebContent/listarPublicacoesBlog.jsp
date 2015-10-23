@@ -12,7 +12,6 @@
 </head>
 <body>
 	<div align="center">
-		<P>Publicacoes</P>
 		<table >
 			<tr>
 				<td>Titulo</td>

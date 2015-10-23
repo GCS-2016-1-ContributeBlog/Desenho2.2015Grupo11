@@ -91,6 +91,16 @@ public class ServletBlog extends HttpServlet {
 			
 			break;
 			
+			case "ListarPublicacoesBlog":
+				
+				idBlogP =  request.getParameter("idBlog") ;				
+				listaPublicacao = blogdao.listarPublicacaoBlog(idBlogP);
+				request.setAttribute("listaPublicacaoBlog", listaPublicacao);
+				this.rd = request.getRequestDispatcher("listarPublicacoesBlog.jsp");
+				this.rd.forward(request, response);
+			
+			break;
+			
 			case "InstanciaPublicacao":
 				String idBlogI = request.getParameter("idBlog");
 				System.out.println(idBlogI);
