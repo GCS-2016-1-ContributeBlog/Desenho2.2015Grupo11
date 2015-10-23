@@ -91,6 +91,7 @@ public class ServletPublicacao extends HttpServlet{
 				idPublicacao = request.getParameter("idPublicacao");
 				String notaPublicacao = request.getParameter("notaPublicacao");
 				int notaAtual = publicacao.getNota();
+				System.out.println(notaAtual);
 				int notaFinal = notaAtual+Integer.parseInt(notaPublicacao);
 				publicacao.setNota(notaFinal);
 				publicacaoDAO.avaliarPublicacao(publicacao, notaPublicacao, idPublicacao);

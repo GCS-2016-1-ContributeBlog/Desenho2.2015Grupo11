@@ -17,12 +17,16 @@
 				<td>Titulo</td>
 				<td>Categoria</td>
 				<td>Conteudo Publicacao</td>
+				<td>Nota</td>
 			</tr>
 			<c:forEach var="publicacao" items="${listaPublicacaoBlog}">
 				<tr>
 					<td>${publicacao.tituloPublicacao}</td>
 					<td>${publicacao.categoriaPublicacao}</td>
 					<td>${publicacao.conteudoPublicacao}</td>
+					<td>${publicacao.nota}</td>
+					<td><a href="ServletPublicacao?acao=AvaliarPublicacao&idPublicacao=${publicacao.idPublicacao}&notaPublicacao=1">Gostei</a></td>
+					<td><a href="ServletPublicacao?acao=AvaliarPublicacao&idPublicacao=${publicacao.idPublicacao}&notaPublicacao=-1">Nao gostei</a></td>
 				</tr>
 			</c:forEach>
 		</table>
