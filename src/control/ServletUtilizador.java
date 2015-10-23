@@ -91,7 +91,7 @@ public class ServletUtilizador extends HttpServlet {
 				utilizador.setDataNascimento(data);
 				
 				utilizadordao.editarUtilizador(utilizador, id);
-				this.rd = request.getRequestDispatcher("listarUtilizadores.jsp");
+				this.rd = request.getRequestDispatcher("ServletAutenticacao");
 				this.rd.forward(request, response);
 				
 				break;
