@@ -66,9 +66,20 @@ public class ServletUtilizador extends HttpServlet {
 				Date date = (Date) formatter.parse(dataNascimento);
 				utilizador.setDataNascimento(date);				
 			
-				utilizadordao.criarUtilizador(utilizador);
-				this.rd = request.getRequestDispatcher("index.jsp");
-				this.rd.forward(request, response);
+				int retorno=0;
+
+				
+				retorno = utilizadordao.validarUtilizador(utilizador.getApelido(), utilizador.getEmail(), retorno);
+				
+				if(retorno==0){
+					utilizadordao.criarUtilizador(utilizador);
+					this.rd = request.getRequestDispatcher("index.jsp");
+					this.rd.forward(request, response);
+				}else{
+					mensagem = "Email ou Apelido já utilizado";
+					this.rd = request.getRequestDispatcher("utilizador.jsp");
+					this.rd.forward(request, response);
+				}
 				
 				break;
 			case "Excluir":
@@ -128,10 +139,6 @@ public class ServletUtilizador extends HttpServlet {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-
-		
-		
-		
 		
 	}			
 		

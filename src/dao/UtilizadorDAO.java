@@ -16,6 +16,25 @@ public class UtilizadorDAO  extends ConnectionFactory{
 	
 	Utilizador utilizador = new Utilizador();
 	
+	public int validarUtilizador(String apelido, String email, int retorno){
+		try{
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("select count(*) as rowcount from Utilizador "
+					+ "where apelido='"+apelido+"' or email='"+email+"'");
+			rs.next();
+			retorno=rs.getInt("rowcount");
+			
+			rs.close();
+			conexao.close();
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return retorno;
+	}
+	
 	public void criarUtilizador(Utilizador utilizador) {
 		try {
 			java.util.Date utilDate = utilizador.getDataNascimento();
