@@ -103,6 +103,21 @@ public class ServletUtilizador extends HttpServlet {
 				this.rd = request.getRequestDispatcher("editarUtilizador.jsp");
 				this.rd.forward(request, response);
 				
+			case "SubmeterPostagem":
+				/*
+				 * Pegar o Id do Blog e o id do usuário 
+				 * e cria uma solicitação de postagem que vai ser aprovada pelo Dono do blog.
+				 * Tabela Blog tem varias ou nenhuma postagem submetidas
+				 * Criar tabela de postagens Submetidas com o indice do blog
+				 * Criar função para Adicionar postatgemSubmetida ao blog
+				 * Adicionar postagem submetida a postagem do BLog
+				 * Lista todas as postagens do blog incluindo as submetidas
+				 * 
+				 * 
+				 * */	
+				
+				
+				
 			default:
 				break;
 				

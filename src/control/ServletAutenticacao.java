@@ -45,6 +45,9 @@ public class ServletAutenticacao extends HttpServlet{
 		this.email = request.getParameter("email");
         this.senha = request.getParameter("senha");
                
+        System.out.println("hhhhhh" + this.email);
+        System.out.println(this.senha);
+        
         AutenticacaoDAO autenticacaoDAO = new AutenticacaoDAO(); 
         Utilizador utilizador = new Utilizador();
         utilizador = autenticacaoDAO.autenticarUtilizador(this.email, this.senha);

@@ -26,10 +26,10 @@
                             <form action="ServletAutenticacao" method="post" accept-charset="UTF-8" role="form">
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="E-mail" name="email" type="email" value="${utilizador.email}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                                        <input class="form-control" placeholder="E-mail" name="email" type="email" value="${utilizador.email}"  required>
                                     </div>
                                     <div class="form-group">
-                                        <input placeholder="Senha" name="senha" type="password" class="form-control" value="${utilizador.senha}" pattern=".{5,}" title="Deve possuir cinco ou mais caracteres" required>
+                                        <input placeholder="Senha" name="senha" type="password" class="form-control" value="${utilizador.senha}"  title="Deve possuir cinco ou mais caracteres" required>
                                     </div>
                                     <div class="checkbox">
                                         <label>
