@@ -12,17 +12,16 @@ public class SubmissaoDAO  extends ConnectionFactory{
 	Blog blog = new Blog();
 	
 	
-	public void publicacaoColaborativa(Blog blog, PublicacaoColaborativa publicacaoColaborativa){
+	public void publicacaoColaborativa(int idBlog, PublicacaoColaborativa publicacaoColaborativa){
 		try {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao.
 					prepareStatement("INSERT INTO Publicacao (tituloPublicacao, categoriaPublicacao, "
-							+ "conteudoPublicacao, idBlog, notaPublicacao, statusPublicacao) VALUES (?,?,?,?,0,?)");
+							+ "conteudoPublicacao, idBlog, notaPublicacao, statusPublicacao) VALUES (?,?,?,?,0,false)");
 			pstm.setString(1, publicacaoColaborativa.getTituloPublicacao());
 			pstm.setString(2, publicacaoColaborativa.getCategoriaPublicacao());
 			pstm.setString(3, publicacaoColaborativa.getConteudoPublicacao());
-			pstm.setInt(4, blog.getIdBlog());
-			pstm.setBoolean(6, false);
+			pstm.setInt(4, idBlog);
 			pstm.execute();
 			pstm.close();
 			conexao.close();
