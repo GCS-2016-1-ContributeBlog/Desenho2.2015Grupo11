@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 
 import model.Blog;
 import model.Publicacao;
@@ -36,18 +40,20 @@ public class SubmissaoDAO  extends ConnectionFactory{
 	}
 	
 	
-	public PublicacaoColaborativa listarColaboracaAprovar(){
-		
+	public List<PublicacaoColaborativa> listarColaboracaAprovar(int idBlog){
+		List<PublicacaoColaborativa>  pubColaborativas= new ArrayList<>();
 		System.out.println("Listar Colaboração");
+		System.out.println(idBlog);
 		try {
 			Connection conexao = getConexao();
 			Statement stm = conexao.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from Publicacao where statusPublicacao=0");
+			ResultSet rs = stm.executeQuery("Select * from Publicacao where statusPublicacao=0 and idBlog="+idBlog);
 			while (rs.next()) {
 				publicacaoColaborativa.setIdPublicacao(rs.getInt("idPublicacao"));
 				publicacaoColaborativa.setTituloPublicacao(rs.getString("tituloPublicacao"));
 				publicacaoColaborativa.setCategoriaPublicacao(rs.getString("categoriaPublicacao"));
 				publicacaoColaborativa.setConteudoPublicacao(rs.getString("conteudoPublicacao"));
+				pubColaborativas.add(publicacaoColaborativa);
 			}
 			stm.close();
 			conexao.close();
@@ -55,7 +61,7 @@ public class SubmissaoDAO  extends ConnectionFactory{
 			e.printStackTrace();
 			System.out.println("Deu Erro lista colaborações para aprovar");
 		}
-		return publicacaoColaborativa;
+		return pubColaborativas;
 	}
 	
 	

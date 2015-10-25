@@ -43,7 +43,7 @@ public class ServletSubmissao extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<PublicacaoColaborativa> listaColaborativa = new ArrayList<>();
+		List<PublicacaoColaborativa> lista= new ArrayList<>();
 		String acao = request.getParameter("acao");
 		System.out.println(acao);
 		
@@ -86,9 +86,9 @@ public class ServletSubmissao extends HttpServlet {
 				
 				
 				idBlog = Integer.parseInt(request.getParameter("idBlog")) ;				
-				listaColaborativa = (List<PublicacaoColaborativa>) subDAO.listarColaboracaAprovar();
-				System.out.println(listaColaborativa);
-				request.setAttribute("listaPublicacaoBlog", listaColaborativa);
+				lista = subDAO.listarColaboracaAprovar(idBlog);
+				System.out.println("Lista Colaborativa "+ lista);
+				request.setAttribute("listaPublicacaoBlog",lista);
 				this.rd = request.getRequestDispatcher("aprovarColaboracao.jsp");
 				this.rd.forward(request, response);
 				break;	
