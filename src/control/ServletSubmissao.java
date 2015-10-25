@@ -1,7 +1,9 @@
 package control;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Blog;
 import model.PublicacaoColaborativa;
 import dao.SubmissaoDAO;
 
@@ -40,7 +43,7 @@ public class ServletSubmissao extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		List<PublicacaoColaborativa> listaColaborativa = new ArrayList<>();
 		String acao = request.getParameter("acao");
 		System.out.println(acao);
 		
@@ -83,7 +86,7 @@ public class ServletSubmissao extends HttpServlet {
 				
 				
 				idBlog = Integer.parseInt(request.getParameter("idBlog")) ;				
-			//	listaPublicacao = blogdao.listarPublicacaoBlog(idBlogP);
+				listaColaborativa = subDAO.listarColaboracaAprovar();
 			//	request.setAttribute("listaPublicacaoBlog", listaPublicacao);
 				this.rd = request.getRequestDispatcher("listarPublicacoesBlog.jsp");
 				this.rd.forward(request, response);

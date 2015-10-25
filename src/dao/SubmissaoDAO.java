@@ -33,8 +33,6 @@ public class SubmissaoDAO  extends ConnectionFactory{
 			System.out.println("Erro adicionar Publicação Colaborativa");
 			e.printStackTrace();
 		}
-		
-		
 	}
 	
 	
@@ -44,17 +42,17 @@ public class SubmissaoDAO  extends ConnectionFactory{
 			Statement stm = conexao.createStatement();
 			ResultSet rs = stm.executeQuery("Select * from Publicacao where statusPublicacao=0");
 			while (rs.next()) {
-				publicacao.setIdPublicacao(rs.getInt("idPublicacao"));
-				publicacao.setTituloPublicacao(rs.getString("tituloPublicacao"));
-				publicacao.setCategoriaPublicacao(rs.getString("categoriaPublicacao"));
-				publicacao.setConteudoPublicacao(rs.getString("conteudoPublicacao"));
+				publicacaoColaborativa.setIdPublicacao(rs.getInt("idPublicacao"));
+				publicacaoColaborativa.setTituloPublicacao(rs.getString("tituloPublicacao"));
+				publicacaoColaborativa.setCategoriaPublicacao(rs.getString("categoriaPublicacao"));
+				publicacaoColaborativa.setConteudoPublicacao(rs.getString("conteudoPublicacao"));
 			}
 			stm.close();
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return publicacao;
+		return publicacaoColaborativa;
 	}
 	
 	
