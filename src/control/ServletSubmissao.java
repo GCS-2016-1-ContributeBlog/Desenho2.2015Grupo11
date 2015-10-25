@@ -27,6 +27,7 @@ public class ServletSubmissao extends HttpServlet {
 		SubmissaoDAO subDAO = new SubmissaoDAO();
 		PublicacaoColaborativa pubColaborativa = new PublicacaoColaborativa();
 		private RequestDispatcher rd;
+		int idBlog = 0;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,7 +50,7 @@ public class ServletSubmissao extends HttpServlet {
 				
 			case "SubmeterPostagem":
 				System.out.println("Entrou");
-				int idBlog = Integer.parseInt(request.getParameter("idBlog"));
+				 idBlog = Integer.parseInt(request.getParameter("idBlog"));
 				System.out.println(request.getParameter("idBlog"));
 				System.out.println("Entrou1");
 				
@@ -72,11 +73,21 @@ public class ServletSubmissao extends HttpServlet {
 				System.out.println("Criar");
 				System.out.println(request.getParameter("idBlog"));
 				
-				
 				request.setAttribute("idBlog", request.getParameter("idBlog"));
 				this.rd = request.getRequestDispatcher("PublicacaoColaborativa.jsp");
 				this.rd.forward(request, response);
 				
+				break;
+			
+			case "AprovarPublicacoes":
+				
+				
+				idBlog = Integer.parseInt(request.getParameter("idBlog")) ;				
+			//	listaPublicacao = blogdao.listarPublicacaoBlog(idBlogP);
+			//	request.setAttribute("listaPublicacaoBlog", listaPublicacao);
+				this.rd = request.getRequestDispatcher("listarPublicacoesBlog.jsp");
+				this.rd.forward(request, response);
+				break;	
 				
 				
 			default:

@@ -2,8 +2,11 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import model.Blog;
+import model.Publicacao;
 import model.PublicacaoColaborativa;
 
 public class SubmissaoDAO  extends ConnectionFactory{
@@ -33,6 +36,27 @@ public class SubmissaoDAO  extends ConnectionFactory{
 		
 		
 	}
+	
+	
+	public PublicacaoColaborativa listarColaboracaAprovar(){
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("Select * from Publicacao where statusPublicacao=0");
+			while (rs.next()) {
+				publicacao.setIdPublicacao(rs.getInt("idPublicacao"));
+				publicacao.setTituloPublicacao(rs.getString("tituloPublicacao"));
+				publicacao.setCategoriaPublicacao(rs.getString("categoriaPublicacao"));
+				publicacao.setConteudoPublicacao(rs.getString("conteudoPublicacao"));
+			}
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return publicacao;
+	}
+	
 	
 	
 	
