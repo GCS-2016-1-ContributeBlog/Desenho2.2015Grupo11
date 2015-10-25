@@ -93,6 +93,22 @@ public class ServletSubmissao extends HttpServlet {
 				this.rd.forward(request, response);
 				break;	
 				
+			case "AceitarPublicacao":
+				
+				
+	
+				
+				idBlog = Integer.parseInt(request.getParameter("idBlog")) ;	
+				pubColaborativa.setIdPublicacao( Integer.parseInt(request.getParameter("idPublicacao")));
+				pubColaborativa.setTituloPublicacao(request.getParameter("tituloPublicacao"));
+				pubColaborativa.setCategoriaPublicacao(request.getParameter(request.getParameter("categoriaPublicacao")));
+				pubColaborativa.setConteudoPublicacao(request.getParameter(request.getParameter("conteudoPublicacao")));
+				
+				subDAO.AprovarPublicacao(idBlog, pubColaborativa);
+				System.out.println("aprovar");
+				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd.forward(request, response);
+				break;	
 				
 			default:
 				break;

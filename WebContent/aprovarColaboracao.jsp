@@ -27,8 +27,7 @@
 					<td>${publicacao.categoriaPublicacao}</td>
 					<td>${publicacao.conteudoPublicacao}</td>
 					
-					<td><a href="ServletPublicacao?acao=ListarPublicacao&idPublicacao=${publicacao.idPublicacao}">Editar Publicacao</a></td>
-					<td><a href="ServletPublicacao?acao=ExcluirPublicacao&idPublicacao=${publicacao.idPublicacao}">Excluir Publicacao</a></td>
+					<td><a href="ServletSubmissao?acao=AceitarPublicacao&idPublicacao=${publicacao.idPublicacao}">Aprovar Publicação</a></td>
 				</tr>
 			</c:forEach>
 		</table>

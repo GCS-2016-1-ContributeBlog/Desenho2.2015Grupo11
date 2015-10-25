@@ -43,17 +43,20 @@ public class SubmissaoDAO  extends ConnectionFactory{
 	public List<PublicacaoColaborativa> listarColaboracaAprovar(int idBlog){
 		List<PublicacaoColaborativa>  pubColaborativas= new ArrayList<>();
 		System.out.println("Listar Colaboração");
-		System.out.println(idBlog);
+		System.out.println(idBlog + "fdffff");
+		
 		try {
 			Connection conexao = getConexao();
 			Statement stm = conexao.createStatement();
-			ResultSet rs = stm.executeQuery("Select * from Publicacao where statusPublicacao=0 and idBlog="+idBlog);
+			ResultSet rs = stm.executeQuery("Select * from Publicacao where statusPublicacao=0 and idBlog="+idBlog+"");
+			System.out.println("Select * from Publicacao where statusPublicacao=0 and idBlog="+idBlog+"");
 			while (rs.next()) {
 				publicacaoColaborativa.setIdPublicacao(rs.getInt("idPublicacao"));
 				publicacaoColaborativa.setTituloPublicacao(rs.getString("tituloPublicacao"));
 				publicacaoColaborativa.setCategoriaPublicacao(rs.getString("categoriaPublicacao"));
 				publicacaoColaborativa.setConteudoPublicacao(rs.getString("conteudoPublicacao"));
 				pubColaborativas.add(publicacaoColaborativa);
+				System.out.println("Passou aqui");
 			}
 			stm.close();
 			conexao.close();
@@ -64,6 +67,23 @@ public class SubmissaoDAO  extends ConnectionFactory{
 		return pubColaborativas;
 	}
 	
+	public void AprovarPublicacao(int idPublicacao, PublicacaoColaborativa publicacaoColaborativa){
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao.
+					prepareStatement("update Publicacao set tituloPublicacao=?, categoriaPublicacao=?, conteudoPublicacao=?, notaPublicacao=? where idPublicacao=?");
+			pstm.setString(1, publicacaoColaborativa.getTituloPublicacao());
+			pstm.setString(2, publicacaoColaborativa.getCategoriaPublicacao());
+			pstm.setString(3, publicacaoColaborativa.getConteudoPublicacao());
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+				
+		} catch (Exception e) {
+			System.out.println("Erro ao aprovar Publicação Colaborativa");
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
