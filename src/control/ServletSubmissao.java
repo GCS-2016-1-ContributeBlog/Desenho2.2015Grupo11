@@ -86,9 +86,10 @@ public class ServletSubmissao extends HttpServlet {
 				
 				
 				idBlog = Integer.parseInt(request.getParameter("idBlog")) ;				
-				listaColaborativa = subDAO.listarColaboracaAprovar();
-			//	request.setAttribute("listaPublicacaoBlog", listaPublicacao);
-				this.rd = request.getRequestDispatcher("listarPublicacoesBlog.jsp");
+				listaColaborativa = (List<PublicacaoColaborativa>) subDAO.listarColaboracaAprovar();
+				System.out.println(listaColaborativa);
+				request.setAttribute("listaPublicacaoBlog", listaColaborativa);
+				this.rd = request.getRequestDispatcher("aprovarColaboracao.jsp");
 				this.rd.forward(request, response);
 				break;	
 				

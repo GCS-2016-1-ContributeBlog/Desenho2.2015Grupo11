@@ -37,6 +37,8 @@ public class SubmissaoDAO  extends ConnectionFactory{
 	
 	
 	public PublicacaoColaborativa listarColaboracaAprovar(){
+		
+		System.out.println("Listar Colaboração");
 		try {
 			Connection conexao = getConexao();
 			Statement stm = conexao.createStatement();
@@ -51,6 +53,7 @@ public class SubmissaoDAO  extends ConnectionFactory{
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Deu Erro lista colaborações para aprovar");
 		}
 		return publicacaoColaborativa;
 	}
