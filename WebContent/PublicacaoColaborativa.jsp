@@ -29,7 +29,7 @@
                         <div class="panel-body">
                             <form form method="post" action="ServletSubmissao?acao=SubmeterPostagem">
                                 <div class="form-group">
-                                    <input type="hidden" name="idBlog" id="iddonoblog" class="form-control input-sm" value="${idBlog}" placeholder="ID" required>
+                                    <input type="" name="idBlog" id="idBlog" class="form-control input-sm" value="${idBlog}" placeholder="ID" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Título</label>

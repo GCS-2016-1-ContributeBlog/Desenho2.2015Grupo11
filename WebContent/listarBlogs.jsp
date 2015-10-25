@@ -35,7 +35,7 @@
                     <td class="text-center">
                     <a class='btn btn-info btn-xs' href="ServletBlog?acao=ListarPublicacoesBlog&idBlog=${blog.idBlog}"> Ver</a>
                     <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Denunciar</a>
-                    <a class='btn btn-info btn-xs' href="PublicacaoColaborativa.jsp?idBlog=${blog.idBlog}">Submeter Publicação</a>
+                    <a class='btn btn-info btn-xs' href="ServletSubmissao?acao=CriaColaboracao&idBlog=${blog.idBlog}">Submeter Publicação</a>
                     </td>
                     </tr>
                     </c:forEach>
