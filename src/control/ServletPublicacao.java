@@ -48,7 +48,7 @@ public class ServletPublicacao extends HttpServlet{
 				publicacao.setConteudoPublicacao(request.getParameter("conteudoPublicacao"));
 				int idBlogInsert =( Integer.parseInt(request.getParameter("idBlog")));
 				
-				publicacaoDAO.publicar(publicacao, idBlogInsert);
+				publicacaoDAO.publicar(idBlogInsert, publicacao);
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);
 				break;

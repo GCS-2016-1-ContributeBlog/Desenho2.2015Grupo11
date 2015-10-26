@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Blog;
+import model.Publicacao;
 import model.PublicacaoColaborativa;
 import dao.ColaboracaoDAO;
 
@@ -43,7 +44,7 @@ public class ServletSubmissao extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<PublicacaoColaborativa> lista= new ArrayList<>();
+		List<Publicacao> lista= new ArrayList<>();
 		String acao = request.getParameter("acao");
 		System.out.println(acao);
 		
@@ -67,7 +68,7 @@ public class ServletSubmissao extends HttpServlet {
 				
 				pubColaborativa.setTituloPublicacao(request.getParameter("tituloPublicacao"));
 				System.out.println(request.getParameter("tituloPublicacao"));
-				subDAO.publicacaoColaborativa(idBlog, pubColaborativa);
+				subDAO.publicar(idBlog, pubColaborativa);
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);
 				break;
