@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Blog;
 import model.PublicacaoColaborativa;
-import dao.SubmissaoDAO;
+import dao.ColaboracaoDAO;
 
 /**
  * Servlet implementation class ServletSubmissao
@@ -27,7 +27,7 @@ public class ServletSubmissao extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
 
-		SubmissaoDAO subDAO = new SubmissaoDAO();
+		ColaboracaoDAO subDAO = new ColaboracaoDAO();
 		PublicacaoColaborativa pubColaborativa = new PublicacaoColaborativa();
 		private RequestDispatcher rd;
 		int idBlog = 0;

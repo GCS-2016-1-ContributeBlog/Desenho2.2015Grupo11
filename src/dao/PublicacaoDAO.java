@@ -14,13 +14,13 @@ import model.Blog;
 import model.Publicacao;
 import model.Utilizador;
 
-public class PublicacaoDAO extends ConnectionFactory{
+public class PublicacaoDAO extends ConnectionFactory implements PublicacaoGeral{
 
 	Publicacao publicacao = new Publicacao();
 	Blog blog = new Blog();
 	
 	
-	public void criarPublicacao(Publicacao publicacao, Blog blog){
+	public void publicar( int blog, Publicacao publicacao){
 		try{
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao.
@@ -29,7 +29,7 @@ public class PublicacaoDAO extends ConnectionFactory{
 			pstm.setString(1, publicacao.getTituloPublicacao());
 			pstm.setString(2, publicacao.getCategoriaPublicacao());
 			pstm.setString(3, publicacao.getConteudoPublicacao());
-			pstm.setInt(4, blog.getIdBlog());
+			pstm.setInt(4, blog);
 			pstm.execute();
 			pstm.close();
 			conexao.close();
@@ -108,4 +108,7 @@ public class PublicacaoDAO extends ConnectionFactory{
 			e.printStackTrace();
 		}
 	}
+
+
+
 }

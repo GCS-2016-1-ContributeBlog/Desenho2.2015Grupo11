@@ -13,13 +13,13 @@ import model.Blog;
 import model.Publicacao;
 import model.PublicacaoColaborativa;
 
-public class SubmissaoDAO  extends ConnectionFactory{
+public class ColaboracaoDAO  extends ConnectionFactory implements PublicacaoGeral{
 
-	PublicacaoColaborativa publicacaoColaborativa = new PublicacaoColaborativa();
+	Publicacao publicacaoColaborativa = new Publicacao();
 	Blog blog = new Blog();
 	
 	
-	public void publicacaoColaborativa(int idBlog, PublicacaoColaborativa publicacaoColaborativa){
+	public void publicar(int idBlog, Publicacao publicacao){
 		try {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao.
@@ -40,8 +40,8 @@ public class SubmissaoDAO  extends ConnectionFactory{
 	}
 	
 	
-	public List<PublicacaoColaborativa> listarColaboracaAprovar(int idBlog){
-		List<PublicacaoColaborativa>  pubColaborativas= new ArrayList<>();
+	public List<Publicacao> listarColaboracaAprovar(int idBlog){
+		List<Publicacao>  pubColaborativas= new ArrayList<>();
 		System.out.println("Listar Colaboração");
 		System.out.println(idBlog + "fdffff");
 		

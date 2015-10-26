@@ -7,6 +7,8 @@ public class Publicacao {
 	private String conteudoPublicacao;
 	private Blog idBlog;
 	private int nota;
+	private boolean statusPublicacao;
+	private Utilizador utilizador;
 	
 	public Publicacao(){
 		
