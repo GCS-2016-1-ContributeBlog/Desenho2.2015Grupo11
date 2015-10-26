@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 import model.Blog;
 import model.Publicacao;
 import model.PublicacaoColaborativa;
@@ -84,6 +83,27 @@ public class ColaboracaoDAO  extends ConnectionFactory implements PublicacaoGera
 			e.printStackTrace();
 		}
 	}
+
+
+	public Publicacao listar(String idPublicacao) {
+		Publicacao publicacao = new Publicacao();
+		publicacao.setTituloPublicacao("");
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("Select * from Publicacao where idPublicacao="+idPublicacao);
+			while (rs.next()) {
+				publicacao.setIdPublicacao(rs.getInt("idPublicacao"));
+				publicacao.setTituloPublicacao(rs.getString("tituloPublicacao"));
+				publicacao.setCategoriaPublicacao(rs.getString("categoriaPublicacao"));
+				publicacao.setConteudoPublicacao(rs.getString("conteudoPublicacao"));
+			}
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return publicacao;}
 	
 	
 	

@@ -61,7 +61,7 @@ public class PublicacaoDAO extends ConnectionFactory implements PublicacaoGeral{
 		}
 	}
 	
-	public Publicacao listarCorpoPublicacao(String idPublicacao) {
+	public Publicacao listar(String idPublicacao) {
 		Publicacao publicacao = new Publicacao();
 		publicacao.setTituloPublicacao("");
 		try {
