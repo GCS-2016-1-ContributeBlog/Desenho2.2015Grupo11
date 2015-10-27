@@ -8,18 +8,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 import model.Blog;
 import model.Publicacao;
 import model.PublicacaoColaborativa;
 
-public class SubmissaoDAO  extends ConnectionFactory{
+public class ColaboracaoDAO  extends ConnectionFactory implements PublicacaoGeral{
 
-	PublicacaoColaborativa publicacaoColaborativa = new PublicacaoColaborativa();
+	Publicacao publicacaoColaborativa = new Publicacao();
 	Blog blog = new Blog();
 	
 	
-	public void publicacaoColaborativa(int idBlog, PublicacaoColaborativa publicacaoColaborativa){
+	public void publicar(int idBlog, Publicacao publicacao){
 		try {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao.
@@ -40,8 +39,8 @@ public class SubmissaoDAO  extends ConnectionFactory{
 	}
 	
 	
-	public List<PublicacaoColaborativa> listarColaboracaAprovar(int idBlog){
-		List<PublicacaoColaborativa>  pubColaborativas= new ArrayList<>();
+	public List<Publicacao> listarColaboracaAprovar(int idBlog){
+		List<Publicacao>  pubColaborativas= new ArrayList<>();
 		System.out.println("Listar Colaboração");
 		System.out.println(idBlog + "fdffff");
 		
@@ -84,6 +83,27 @@ public class SubmissaoDAO  extends ConnectionFactory{
 			e.printStackTrace();
 		}
 	}
+
+
+	public Publicacao listar(String idPublicacao) {
+		Publicacao publicacao = new Publicacao();
+		publicacao.setTituloPublicacao("");
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("Select * from Publicacao where idPublicacao="+idPublicacao);
+			while (rs.next()) {
+				publicacao.setIdPublicacao(rs.getInt("idPublicacao"));
+				publicacao.setTituloPublicacao(rs.getString("tituloPublicacao"));
+				publicacao.setCategoriaPublicacao(rs.getString("categoriaPublicacao"));
+				publicacao.setConteudoPublicacao(rs.getString("conteudoPublicacao"));
+			}
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return publicacao;}
 	
 	
 	
