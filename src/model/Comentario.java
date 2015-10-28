@@ -1,0 +1,28 @@
+package model;
+
+import java.util.Date;
+
+public class Comentario {
+	private int idComentario;
+	private String conteudoComentario;
+	private Date dataComentario;
+	
+	public int getIdComentario() {
+		return idComentario;
+	}
+	public void setIdComentario(int idComentario) {
+		this.idComentario = idComentario;
+	}
+	public String getConteudoComentario() {
+		return conteudoComentario;
+	}
+	public void setConteudoComentario(String conteudoComentario) {
+		this.conteudoComentario = conteudoComentario;
+	}
+	public Date getDataComentario() {
+		return dataComentario;
+	}
+	public void setDataComentario(Date dataComentario) {
+		this.dataComentario = dataComentario;
+	}
+}
