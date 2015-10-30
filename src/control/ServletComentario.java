@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.ComentarioDAO;
 import model.Comentario;
+import model.Publicacao;
 import model.Utilizador;
 
 @WebServlet("/ServletComentario")
@@ -36,15 +37,26 @@ public class ServletComentario extends HttpServlet{
 		Comentario comentario = new Comentario();
 		ComentarioDAO comentarioDAO = new ComentarioDAO();
 		Utilizador utilizador = new Utilizador();
+		Publicacao publicacao = new Publicacao();
+		
 		try {
 			switch (acao) {
 			
 			case "Criar":
 				comentario.setConteudoComentario(request.getParameter("conteudoComentario"));
 				utilizador.setId(Integer.parseInt(request.getParameter("idUtilizador")));
+				int idPublicacaoCriar = (Integer.parseInt(request.getParameter("idPublicacao")));
 				
-				comentarioDAO.criarComentario(comentario, utilizador);
+				comentarioDAO.criarComentario(comentario, utilizador, idPublicacaoCriar);
 				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd.forward(request, response);
+				
+				break;
+				
+			case "InstanciaPublicacao":
+				String idPublicacao = request.getParameter("idPublicacao");
+				request.setAttribute("idPublicacao", idPublicacao);
+				this.rd = request.getRequestDispatcher("criarComentario.jsp");
 				this.rd.forward(request, response);
 				
 				break;

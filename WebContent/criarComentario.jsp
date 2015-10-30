@@ -8,6 +8,7 @@
 </head>
 <body>
 	<form method="post" action="ServletComentario?acao=Criar">
+		<input type="hidden" name="idPublicacao" id="idPublicacao" value="${idPublicacao}">
 	 	<input type="hidden" name="idUtilizador" id="idutilizador" class="form-control input-sm" value="${utilizador.id}" placeholder="ID" required>
 		<label>Conteudo</label><br />
 		<textarea class="form-control" maxlength="150" rows="3" name="conteudoComentario" id="conteudo" 

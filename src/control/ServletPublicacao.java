@@ -74,7 +74,7 @@ public class ServletPublicacao extends HttpServlet{
 				
 			case "ListarPublicacao":
 				idPublicacao = request.getParameter("idPublicacao");
-				publicacao = publicacaoDAO.listarCorpoPublicacao(idPublicacao);
+				publicacao = publicacaoDAO.listar(idPublicacao);
 				request.setAttribute("publicacao", publicacao);
 				this.rd = request.getRequestDispatcher("editarPublicacao.jsp");
 				this.rd.forward(request, response);

@@ -49,6 +49,7 @@
                                             <div class="action">
                                                 <a href="ServletPublicacao?acao=AvaliarPublicacao&idPublicacao=${publicacao.idPublicacao}&notaPublicacao=1" class="btn btn-success btn-xs" role="button"><span class="glyphicon glyphicon-ok"></span> Gostei</a>
                                                 <a href="ServletPublicacao?acao=AvaliarPublicacao&idPublicacao=${publicacao.idPublicacao}&notaPublicacao=-1" class="btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-minus"></span> Não Gostei</a>
+                                                <a href="ServletComentario?acao=InstanciaPublicacao&idPublicacao=${publicacao.idPublicacao}">Comentar</a>
                                             </div>
                                         </div>
                                     </div>
