@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.ComentarioDAO;
 import model.Comentario;
+import model.Utilizador;
 
 @WebServlet("/ServletComentario")
 public class ServletComentario extends HttpServlet{
@@ -34,16 +35,19 @@ public class ServletComentario extends HttpServlet{
 
 		Comentario comentario = new Comentario();
 		ComentarioDAO comentarioDAO = new ComentarioDAO();
-		
+		Utilizador utilizador = new Utilizador();
 		try {
 			switch (acao) {
 			
 			case "Criar":
 				comentario.setConteudoComentario(request.getParameter("conteudoComentario"));
+				utilizador.setId(Integer.parseInt(request.getParameter("idUtilizador")));
 				
-				comentarioDAO.criarComentario(comentario);
+				comentarioDAO.criarComentario(comentario, utilizador);
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);
+				
+				break;
 				
 			default:
 				break;
