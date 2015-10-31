@@ -66,7 +66,6 @@ public class ServletBlog extends HttpServlet {
 				
 			case "Listar":
 				lista = blogdao.listarBlog();
-				System.out.println(lista);
 				request.setAttribute("listaBlog", lista);
 				this.rd = request.getRequestDispatcher("listarBlogs.jsp");
 				this.rd.forward(request, response);

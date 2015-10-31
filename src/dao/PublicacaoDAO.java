@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.plaf.synth.SynthScrollBarUI;
 
 import model.Blog;
+import model.Comentario;
 import model.Publicacao;
 import model.Utilizador;
 
@@ -109,6 +110,30 @@ public class PublicacaoDAO extends ConnectionFactory implements PublicacaoGeral{
 		}
 	}
 
-
+	public List<Comentario> listarComentarios(String idPublicacao){
+		List<Comentario> comentarios = new  ArrayList<>();
+		
+		
+		try{
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("Select * from Comentario where idPublicacao="+idPublicacao);
+			while (rs.next()) {
+				Comentario comentario = new Comentario();
+				comentario.setIdComentario(rs.getInt("idComentario"));
+				comentario.setConteudoComentario(rs.getString("conteudoComentario"));
+				comentario.setDataComentario(rs.getDate("dataCriacaoComentario"));
+				comentarios.add(comentario);
+			}
+			stm.close();
+			conexao.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return comentarios;
+		
+	}
 
 }

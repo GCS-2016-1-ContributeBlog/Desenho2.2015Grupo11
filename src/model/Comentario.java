@@ -6,6 +6,7 @@ public class Comentario {
 	private int idComentario;
 	private String conteudoComentario;
 	private Date dataComentario;
+	private String utilizadorComentario;
 	
 	public int getIdComentario() {
 		return idComentario;
@@ -25,4 +26,7 @@ public class Comentario {
 	public void setDataComentario(Date dataComentario) {
 		this.dataComentario = dataComentario;
 	}
+	
+	
+	
 }

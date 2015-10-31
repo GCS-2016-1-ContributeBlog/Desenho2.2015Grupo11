@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ComentarioDAO;
 import dao.PublicacaoDAO;
 import model.Blog;
+import model.Comentario;
 import model.Publicacao;
 
 @WebServlet("/ServletPublicacao")
@@ -37,6 +39,8 @@ public class ServletPublicacao extends HttpServlet{
 		Publicacao publicacao = new Publicacao();
 		PublicacaoDAO publicacaoDAO = new PublicacaoDAO();
 		Blog blog = new Blog();
+		List<Comentario> listaComentarios = new ArrayList();
+		ComentarioDAO comentariodao = new ComentarioDAO();
 		
 		try{
 			switch(acao){
@@ -96,6 +100,14 @@ public class ServletPublicacao extends HttpServlet{
 				publicacaoDAO.avaliarPublicacao(publicacao, notaPublicacao, idPublicacao);
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);	
+				break;
+				
+			case "ListarComentarios":
+				idPublicacao = request.getParameter("idPublicacao");
+				listaComentarios = publicacaoDAO.listarComentarios(idPublicacao);
+				request.setAttribute("listaComentariosPublicacao", listaComentarios);
+				this.rd = request.getRequestDispatcher("listarComentariosPublicacao.jsp");
+				this.rd.forward(request, response);
 				break;
 			}
 			
