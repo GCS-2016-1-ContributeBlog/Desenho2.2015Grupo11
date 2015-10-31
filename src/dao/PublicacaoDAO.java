@@ -120,9 +120,15 @@ public class PublicacaoDAO extends ConnectionFactory implements PublicacaoGeral{
 			ResultSet rs = stm.executeQuery("Select * from Comentario where idPublicacao="+idPublicacao);
 			while (rs.next()) {
 				Comentario comentario = new Comentario();
+				
 				comentario.setIdComentario(rs.getInt("idComentario"));
 				comentario.setConteudoComentario(rs.getString("conteudoComentario"));
 				comentario.setDataComentario(rs.getDate("dataCriacaoComentario"));
+				
+				int idUtilizador = rs.getInt("idUtilizador");
+				String apelidoUtilizador = identificarUsuario(idUtilizador);
+				comentario.setUtilizadorComentario(apelidoUtilizador);
+				
 				comentarios.add(comentario);
 			}
 			stm.close();
@@ -134,6 +140,23 @@ public class PublicacaoDAO extends ConnectionFactory implements PublicacaoGeral{
 		
 		return comentarios;
 		
+	}
+	
+	public String identificarUsuario(int idUtilizador){
+		String apelido = null;
+		try{
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("select * from Utilizador where id="+idUtilizador);
+			while (rs.next()) {
+				apelido = rs.getString("apelido");
+				System.out.println(apelido);
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return apelido;
 	}
 
 }

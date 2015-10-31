@@ -26,7 +26,12 @@ public class Comentario {
 	public void setDataComentario(Date dataComentario) {
 		this.dataComentario = dataComentario;
 	}
-	
+	public String getUtilizadorComentario() {
+		return utilizadorComentario;
+	}
+	public void setUtilizadorComentario(String utilizadorComentario) {
+		this.utilizadorComentario = utilizadorComentario;
+	}
 	
 	
 }

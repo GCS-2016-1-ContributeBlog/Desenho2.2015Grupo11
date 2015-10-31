@@ -12,12 +12,14 @@
 </head>
 <body>
 	<table >
+	<label>${utilizador.apelido}</label>
 			<c:forEach var="comentario" items="${listaComentariosPublicacao}">
 				<tr>
 					<td><label>Data Comentário:</label>${comentario.dataComentario}</td>
 					<td><label>Conteúdo:</label>${comentario.conteudoComentario}</td>
-					
-					
+					<td><label>apelidoUtilizador:</label>${comentario.utilizadorComentario}</td>
+					<td><c:if test="${utilizador.apelido == comentario.utilizadorComentario}"><a href="ServletComentario?acao=ExcluirComentario&idComentario=${comentario.idComentario}">Excluir Publicacao</a></c:if>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

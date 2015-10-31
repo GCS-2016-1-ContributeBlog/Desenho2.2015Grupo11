@@ -61,6 +61,13 @@ public class ServletComentario extends HttpServlet{
 				
 				break;
 				
+			case "ExcluirComentario":
+				String idComentario = request.getParameter("idComentario");
+				comentarioDAO.excluirComentario(idComentario);
+				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd.forward(request, response);	
+				break;
+				
 			default:
 				break;
 			}

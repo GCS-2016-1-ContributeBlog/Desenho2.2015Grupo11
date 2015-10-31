@@ -41,5 +41,19 @@ public class ComentarioDAO extends ConnectionFactory{
 			e.printStackTrace();
 		}
 	}
+	
+	public void excluirComentario(String idComentario){
+		try{
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao.prepareStatement("Delete from Comentario where idComentario =" +idComentario);
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+		
+	
 		
 }
