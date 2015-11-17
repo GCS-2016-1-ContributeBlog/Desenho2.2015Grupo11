@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.FabricaDenunciaBlogDAO;
+import model.Blog;
 import model.DenunciaBlog;
+import model.Utilizador;
 
 @WebServlet("/ServletDenuncia")
 public class ServletDenuncia extends HttpServlet{
@@ -29,13 +31,26 @@ public class ServletDenuncia extends HttpServlet{
 		
 		DenunciaBlog denunciaBlog = new DenunciaBlog();
 		FabricaDenunciaBlogDAO denunciaBlogDAO = new FabricaDenunciaBlogDAO();
+		Utilizador utilizador = new Utilizador();
+		Blog blog = new Blog();
 		
 		try{
 			switch(acao){
 			case "CriarDenunciaBlog":
 				denunciaBlog.setConteudoDenuncia(request.getParameter("conteudoDenuncia"));
-				denunciaBlogDAO.criarDenuncia(1, denunciaBlog);
+				utilizador.setId(Integer.parseInt(request.getParameter("idUtilizador")));
+				int idBlog = Integer.parseInt(request.getParameter("idBlog"));
+				denunciaBlogDAO.criarDenuncia(idBlog, denunciaBlog, utilizador);
+				
 				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd.forward(request, response);
+				break;
+			
+			
+			case "InstanciaBlog":
+				String idBlogD= request.getParameter("idBlog");
+				request.setAttribute("idBlog", idBlogD);
+				this.rd = request.getRequestDispatcher("denunciarBlog.jsp");
 				this.rd.forward(request, response);
 				break;
 			}
