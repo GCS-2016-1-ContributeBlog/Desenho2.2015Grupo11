@@ -58,7 +58,6 @@ public class ServletComentario extends HttpServlet{
 				request.setAttribute("idPublicacao", idPublicacao);
 				this.rd = request.getRequestDispatcher("criarComentario.jsp");
 				this.rd.forward(request, response);
-				
 				break;
 				
 			case "ExcluirComentario":
