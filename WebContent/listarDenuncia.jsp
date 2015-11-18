@@ -37,7 +37,7 @@
                     <td>${denuncia.conteudoDenuncia}</td>
                     <td class="text-center">
                    <a class='btn btn-danger btn-xs' href="ServletDenuncia?acao=ExcluirDenunciaBlog&idDenuncia=${denuncia.idDenuncia}">Excluir Denuncia</a>
-                   <a class='btn btn-danger btn-xs' href="ServletSubmissao?acao=CriaColaboracao&idBlog=${blog.idBlog}">Excluir Blog</a>
+                   <a class='btn btn-danger btn-xs' href="ServletDenuncia?acao=ExcluirBlogDenuncia&idDenuncia=${denuncia.idDenuncia}">Excluir Blog</a>
                    </td>
                     </tr>
                     </c:forEach>

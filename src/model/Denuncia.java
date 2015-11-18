@@ -6,21 +6,31 @@ public class Denuncia {
 	private int idDenuncia;
 	private Date dataDenuncia;
 	private String conteudoDenuncia;
+	private int idBlog; 
 	
 	public Denuncia(){
 		
 	}
 	
-	public Denuncia(int idDenuncia, Date dataDenuncia, String conteudoDenuncia){
+	public Denuncia(int idDenuncia, Date dataDenuncia, String conteudoDenuncia, int idBlog){
 		this.idDenuncia = idDenuncia;
 		this.dataDenuncia = dataDenuncia;
 		this.conteudoDenuncia = conteudoDenuncia;
+		this.idBlog = idBlog;
 		
 	}
 	
 	public int getIdDenuncia() {
 		return idDenuncia;
 	}
+	public int getIdBlog() {
+		return idBlog;
+	}
+
+	public void setIdBlog(int idBlog) {
+		this.idBlog = idBlog;
+	}
+
 	public void setIdDenuncia(int idDenuncia) {
 		this.idDenuncia = idDenuncia;
 	}

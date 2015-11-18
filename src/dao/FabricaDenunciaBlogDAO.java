@@ -11,6 +11,7 @@ import java.util.List;
 import model.Blog;
 import model.Denuncia;
 import model.DenunciaBlog;
+import model.DenunciaPublicacao;
 import model.Utilizador;
 
 public class FabricaDenunciaBlogDAO extends ConnectionFactory implements FabricaDenunciaDAO {
@@ -72,5 +73,24 @@ public class FabricaDenunciaBlogDAO extends ConnectionFactory implements Fabrica
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Denuncia excluirBlogDenuncia(String idDenuncia) {
+		Denuncia denuncia = new Denuncia();
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("Select from Denuncia where idDenuncia ="+idDenuncia);
+			
+			while (rs.next()) {
+				denuncia.setIdBlog(rs.getInt("idBlog"));
+			}
+			
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return denuncia;
 	}
 }

@@ -71,4 +71,5 @@ public class FabricaDenunciaPublicacaoDAO extends ConnectionFactory implements F
 			e.printStackTrace();
 		}
 	}
+
 }

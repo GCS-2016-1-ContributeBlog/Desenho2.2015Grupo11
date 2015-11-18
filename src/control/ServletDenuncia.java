@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Parser;
+
+import dao.BlogDAO;
 import dao.FabricaDenunciaBlogDAO;
 import dao.FabricaDenunciaPublicacaoDAO;
 import model.Blog;
@@ -109,6 +112,19 @@ public class ServletDenuncia extends HttpServlet{
 				
 			break;
 			
+			case "ExcluirBlogDenuncia":
+				idDenuncia = request.getParameter("idDenuncia");
+				
+				FabricaDenunciaBlogDAO denunciaDAO = new FabricaDenunciaBlogDAO();
+				BlogDAO blogDAO = new BlogDAO();
+				
+				Denuncia denuncia = denunciaDAO.excluirBlogDenuncia(idDenuncia);
+				System.out.println(denuncia.getIdBlog());
+				blogDAO.excluir(Integer.toString(denuncia.getIdBlog()));
+				this.rd = request.getRequestDispatcher("index.jsp");
+				this.rd.forward(request, response);
+				
+			break;
 		}
 			
 	}
