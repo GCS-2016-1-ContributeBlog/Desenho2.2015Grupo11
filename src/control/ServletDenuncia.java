@@ -92,8 +92,18 @@ public class ServletDenuncia extends HttpServlet{
 				
 				this.rd = request.getRequestDispatcher("listarDenuncia.jsp");
 				this.rd.forward(request, response);
-			}
+				
+			case "ExcluirDenunciaBlog":
+				String idDenuncia = request.getParameter("idDenuncia");				
+				denunciaBlogDAO.excluirDenuncia(idDenuncia);
+				this.rd = request.getRequestDispatcher("ServletDenuncia?acao=ListarDenuncia");
+				this.rd.forward(request, response);
+				
+			break;
+			
 		}
+			
+	}
 		catch(Exception e){
 			// TODO: handle exception)
 		}

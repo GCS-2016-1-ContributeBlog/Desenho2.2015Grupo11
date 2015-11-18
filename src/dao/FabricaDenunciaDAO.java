@@ -1,5 +1,7 @@
 package dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import model.Denuncia;
@@ -11,6 +13,7 @@ public interface FabricaDenunciaDAO {
 	
 	void criarDenuncia(int id, Denuncia denuncia, Utilizador utilizador);
 	public List<Denuncia> listarDenuncia ();
+	public void excluirDenuncia(String idDenuncia);
 	
 	
 }
