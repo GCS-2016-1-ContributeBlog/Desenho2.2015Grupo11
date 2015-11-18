@@ -63,7 +63,7 @@
                     <td>${denuncia.idDenuncia}</td>
                     <td>${denuncia.conteudoDenuncia}</td>
                     <td class="text-center">
-                    <a class='btn btn-danger btn-xs' href="ServletSubmissao?acao=CriaColaboracao&idBlog=${blog.idBlog}">Excluir Denuncia</a></td>
+                    <a class='btn btn-danger btn-xs' href="ServletDenuncia?acao=ExcluirDenunciaPublicacao&idDenuncia=${denuncia.idDenuncia}">Excluir Denuncia</a>
                     </tr>
                     </c:forEach>
                 </table>

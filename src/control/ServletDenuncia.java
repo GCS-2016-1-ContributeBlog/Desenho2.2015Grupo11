@@ -101,6 +101,14 @@ public class ServletDenuncia extends HttpServlet{
 				
 			break;
 			
+			case "ExcluirDenunciaPublicacao":
+				idDenuncia = request.getParameter("idDenuncia");				
+				denunciaPublicacaoDAO.excluirDenuncia(idDenuncia);
+				this.rd = request.getRequestDispatcher("ServletDenuncia?acao=ListarDenuncia");
+				this.rd.forward(request, response);
+				
+			break;
+			
 		}
 			
 	}

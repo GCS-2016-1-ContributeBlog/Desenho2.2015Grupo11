@@ -57,4 +57,18 @@ public class FabricaDenunciaPublicacaoDAO extends ConnectionFactory implements F
 		}
 		return lista;
 	}
+	
+	public void excluirDenuncia(String idDenuncia) {
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Delete from Denuncia where idDenuncia ="+idDenuncia);
+		
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
