@@ -56,7 +56,7 @@ public class ComentarioDAO extends ConnectionFactory{
 	}
 	
 	public List<Comentario> listarComentarioBlog(String idPublicacao) {
-		List<Comentario> lista = new ArrayList<>();
+		List<Comentario> listaComentario = new ArrayList<Comentario>();
 		try {
 			Connection conexao = getConexao();
 			Statement stm = conexao.createStatement();
@@ -65,9 +65,11 @@ public class ComentarioDAO extends ConnectionFactory{
 			while (rs.next()) {
 				Comentario comentario = new Comentario();
 				comentario.setIdComentario(rs.getInt("idComentario"));
+				System.out.println(comentario.getIdComentario());
 				comentario.setConteudoComentario(rs.getString("conteudoComentario"));
 				comentario.setUtilizadorComentario(rs.getString("idUtilizador"));
-				lista.add(comentario);
+				System.out.println(comentario.getConteudoComentario());
+				listaComentario.add(comentario);
 				
 			}
 			stm.close();
@@ -75,7 +77,7 @@ public class ComentarioDAO extends ConnectionFactory{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return lista;
+		return listaComentario;
 	}
 	
 	
