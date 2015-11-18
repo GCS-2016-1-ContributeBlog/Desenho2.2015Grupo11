@@ -3,6 +3,7 @@ package control;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jdk.nashorn.internal.runtime.ListAdapter;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 import dao.ComentarioDAO;
+import model.Blog;
 import model.Comentario;
 import model.Publicacao;
 import model.Utilizador;
@@ -22,6 +28,7 @@ public class ServletComentario extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher rd;
 
+	
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -31,13 +38,16 @@ public class ServletComentario extends HttpServlet{
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 			
-		String acao = request.getParameter("acao");
 		
+		
+		String acao = request.getParameter("acao");
 
+		
 		Comentario comentario = new Comentario();
 		ComentarioDAO comentarioDAO = new ComentarioDAO();
 		Utilizador utilizador = new Utilizador();
 		Publicacao publicacao = new Publicacao();
+		java.util.List<Comentario> comentarios = new ArrayList<Comentario>();
 		
 		try {
 			switch (acao) {
@@ -60,6 +70,13 @@ public class ServletComentario extends HttpServlet{
 				this.rd.forward(request, response);
 				break;
 				
+			case "ListarComentarioDelete":
+				String idPostagem = request.getParameter("idPostagem");
+				comentarios = comentarioDAO.listarComentarioBlog(idPostagem);
+				request.setAttribute("comentarios", comentarios);
+				this.rd = request.getRequestDispatcher("deletarComentario.jsp");
+				this.rd.forward(request, response);	
+				break;
 			case "ExcluirComentario":
 				String idComentario = request.getParameter("idComentario");
 				comentarioDAO.excluirComentario(idComentario);
