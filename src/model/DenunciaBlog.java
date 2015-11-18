@@ -8,7 +8,7 @@ public class DenunciaBlog extends Denuncia{
 		
 	}
 	
-	public DenunciaBlog(int idComentario, String conteudoComentario, Date dataComentario){
+	public DenunciaBlog(int idDenuncia, String conteudoDenuncia, Date dataDenuncia){
 		super();
 	}
 }

@@ -1,6 +1,8 @@
 package control;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.FabricaDenunciaBlogDAO;
 import dao.FabricaDenunciaPublicacaoDAO;
 import model.Blog;
+import model.Denuncia;
 import model.DenunciaBlog;
 import model.DenunciaPublicacao;
 import model.Utilizador;
@@ -37,6 +40,8 @@ public class ServletDenuncia extends HttpServlet{
 		FabricaDenunciaPublicacaoDAO denunciaPublicacaoDAO = new FabricaDenunciaPublicacaoDAO();
 		Utilizador utilizador = new Utilizador();
 		Blog blog = new Blog();
+		List<Denuncia> listaDenunciaBlog = new ArrayList<>();
+		
 		
 		try{
 			switch(acao){
@@ -75,11 +80,21 @@ public class ServletDenuncia extends HttpServlet{
 				this.rd = request.getRequestDispatcher("denunciarPublicacao.jsp");
 				this.rd.forward(request, response);
 				break;
+			
+			
+			case "ListarDenuncia":
+				System.out.println("ok");
+				listaDenunciaBlog = denunciaBlogDAO.listarDenuncia();
+				request.setAttribute("listaDenunciaBlog", listaDenunciaBlog);
+				System.out.println("ok");
+				this.rd = request.getRequestDispatcher("listarDenuncia.jsp");
+				this.rd.forward(request, response);
 			}
-		}catch(Exception e){
+		}
+		catch(Exception e){
 			// TODO: handle exception)
 		}
-		
+	  }
 		
 	}
-}
+

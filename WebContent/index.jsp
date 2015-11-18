@@ -40,6 +40,9 @@
 									<a href="ServletBlog?acao=Listar" class=""><span>Listar Blogs</span></a>
 								</li>
 								<li class="special">
+									<a href="ServletDenuncia?acao=ListarDenuncia" class=""><span>Listar Denuncias</span></a>
+								</li>
+								<li class="special">
 									<a href="utilizador.jsp" class=""><span>Cadastre-se</span></a>
 								</li>
 								<li class="special">

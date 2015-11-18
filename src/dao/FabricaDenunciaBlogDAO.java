@@ -2,8 +2,13 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import model.Blog;
 import model.Denuncia;
 import model.DenunciaBlog;
 import model.Utilizador;
@@ -31,5 +36,27 @@ public class FabricaDenunciaBlogDAO extends ConnectionFactory implements Fabrica
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public List<Denuncia> listarDenuncia() {
+		List<Denuncia> lista = new ArrayList<>();
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("Select * from Denuncia where idPublicacao IS NULL");
+			
+			while (rs.next()) {
+				Denuncia denunciaBlog = new DenunciaBlog();
+				denunciaBlog.setIdDenuncia(rs.getInt("idDenuncia"));
+				denunciaBlog.setConteudoDenuncia(rs.getString("conteudoDenuncia"));
+				//blog.setDataCriacao(rs.getDate("dataCriacao"));
+				lista.add(denunciaBlog);
+			}
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 }
