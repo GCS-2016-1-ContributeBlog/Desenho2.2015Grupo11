@@ -21,8 +21,11 @@
             <div class="row col-md-6 col-md-offset-2 custyle">
                 <table class="table table-striped custab">
                     <thead>
+                    <tr>
+                           <b><h2></h2><td colspan="3">Denuncias de Blog</td></h2></b>
+                    </tr>       
                         <tr>
-                            <th>ID Denuncia</th>
+                            <th>ID</th>
                             <th>Conteúdo</th>
                             <th class="text-center"> <input name='Voltar' type='button' class="btn btn-success btn-sm" onclick='javascript:history.back();self.location.reload();' value='Voltar' > </th>
                         </tr>
@@ -33,10 +36,34 @@
                     <td>${denuncia.idDenuncia}</td>
                     <td>${denuncia.conteudoDenuncia}</td>
                     <td class="text-center">
-                    <a class='btn btn-info btn-xs' href="ServletBlog?acao=ListarPublicacoesBlog&idBlog=${blog.idBlog}"> Ver</a>
-                    <a href="ServletDenuncia?acao=InstanciaBlog&idBlog=${blog.idBlog}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Denunciar</a>
-                    <a class='btn btn-info btn-xs' href="ServletSubmissao?acao=CriaColaboracao&idBlog=${blog.idBlog}">Submeter Publicação</a>
-                    </td>
+                   <a class='btn btn-danger btn-xs' href="ServletSubmissao?acao=CriaColaboracao&idBlog=${blog.idBlog}">Excluir Denuncia</a>
+                   <a class='btn btn-danger btn-xs' href="ServletSubmissao?acao=CriaColaboracao&idBlog=${blog.idBlog}">Excluir Blog</a>
+                   </td>
+                    </tr>
+                    </c:forEach>
+                </table>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row col-md-6 col-md-offset-2 custyle">
+                <table class="table table-striped custab">
+                    <thead>
+                    <tr>
+                           <b><h2></h2><td colspan="3">Denuncias de Publicação</td></h2></b>
+                    </tr>       
+                        <tr>
+                            <th>ID</th>
+                            <th>Conteúdo</th>
+                            <th class="text-center"> <input name='Voltar' type='button' class="btn btn-success btn-sm" onclick='javascript:history.back();self.location.reload();' value='Voltar' > </th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <c:forEach var="denuncia" items="${listaDenunciaPublicacao}">
+                    <tr>
+                    <td>${denuncia.idDenuncia}</td>
+                    <td>${denuncia.conteudoDenuncia}</td>
+                    <td class="text-center">
+                    <a class='btn btn-danger btn-xs' href="ServletSubmissao?acao=CriaColaboracao&idBlog=${blog.idBlog}">Excluir Denuncia</a></td>
                     </tr>
                     </c:forEach>
                 </table>

@@ -41,6 +41,7 @@ public class ServletDenuncia extends HttpServlet{
 		Utilizador utilizador = new Utilizador();
 		Blog blog = new Blog();
 		List<Denuncia> listaDenunciaBlog = new ArrayList<>();
+		List<Denuncia> listaDenunciaPublicacao = new ArrayList<>();
 		
 		
 		try{
@@ -83,10 +84,12 @@ public class ServletDenuncia extends HttpServlet{
 			
 			
 			case "ListarDenuncia":
-				System.out.println("ok");
 				listaDenunciaBlog = denunciaBlogDAO.listarDenuncia();
 				request.setAttribute("listaDenunciaBlog", listaDenunciaBlog);
-				System.out.println("ok");
+				
+				listaDenunciaPublicacao = denunciaPublicacaoDAO.listarDenuncia();
+				request.setAttribute("listaDenunciaPublicacao", listaDenunciaPublicacao);
+				
 				this.rd = request.getRequestDispatcher("listarDenuncia.jsp");
 				this.rd.forward(request, response);
 			}
