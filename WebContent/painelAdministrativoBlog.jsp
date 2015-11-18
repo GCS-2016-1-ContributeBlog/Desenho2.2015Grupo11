@@ -13,5 +13,7 @@
 <td><a href="ServletBlog?acao=Excluir&idBlog=${idBlog}">Excluir</a></td></br>
 <td><a href="ServletBlog?acao=ListarPublicacoes&idBlog=${idBlog}">Ver Publicacoes</a></br>
 <td><a href="ServletSubmissao?acao=AprovarPublicacoes&idBlog=${idBlog}">Ver Publicacoes Colaborativas para Aprovação</a></br>
+
+
 </body>
 </html>

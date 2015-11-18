@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import model.Blog;
 import model.Comentario;
 import model.Publicacao;
 import model.Utilizador;
@@ -53,6 +54,34 @@ public class ComentarioDAO extends ConnectionFactory{
 			e.printStackTrace();
 		}
 	}
+	
+	public List<Comentario> listarComentarioBlog(String idPublicacao) {
+		List<Comentario> listaComentario = new ArrayList<Comentario>();
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("select * from Comentario where idPublicacao=" + idPublicacao);
+			
+			while (rs.next()) {
+				Comentario comentario = new Comentario();
+				comentario.setIdComentario(rs.getInt("idComentario"));
+				System.out.println(comentario.getIdComentario());
+				comentario.setConteudoComentario(rs.getString("conteudoComentario"));
+				comentario.setUtilizadorComentario(rs.getString("idUtilizador"));
+				System.out.println(comentario.getConteudoComentario());
+				listaComentario.add(comentario);
+				
+			}
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listaComentario;
+	}
+	
+	
+	
 		
 	
 		

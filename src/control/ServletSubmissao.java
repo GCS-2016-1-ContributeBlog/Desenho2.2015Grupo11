@@ -57,15 +57,11 @@ public class ServletSubmissao extends HttpServlet {
 				 idBlog = Integer.parseInt(request.getParameter("idBlog"));
 				System.out.println(request.getParameter("idBlog"));
 				System.out.println("Entrou1");
-				
 				String idUtilizador = request.getParameter("idUtilizador");
-				
-				
 				pubColaborativa.setCategoriaPublicacao(request.getParameter("categoriaPublicacao"));
 				System.out.println(request.getParameter("categoriaPublicacao"));
 				pubColaborativa.setConteudoPublicacao(request.getParameter("conteudoPublicacao"));
 				System.out.println(request.getParameter("conteudoPublicacao"));
-				
 				pubColaborativa.setTituloPublicacao(request.getParameter("tituloPublicacao"));
 				System.out.println(request.getParameter("tituloPublicacao"));
 				subDAO.publicar(idBlog, pubColaborativa);
@@ -76,16 +72,12 @@ public class ServletSubmissao extends HttpServlet {
 			case "CriaColaboracao":
 				System.out.println("Criar");
 				System.out.println(request.getParameter("idBlog"));
-				
 				request.setAttribute("idBlog", request.getParameter("idBlog"));
 				this.rd = request.getRequestDispatcher("PublicacaoColaborativa.jsp");
 				this.rd.forward(request, response);
-				
 				break;
 			
 			case "AprovarPublicacoes":
-				
-				
 				idBlog = Integer.parseInt(request.getParameter("idBlog")) ;				
 				lista = subDAO.listarColaboracaAprovar(idBlog);
 				System.out.println("Lista Colaborativa "+ lista);
@@ -95,21 +87,23 @@ public class ServletSubmissao extends HttpServlet {
 				break;	
 				
 			case "AceitarPublicacao":
-				
-				
-	
-				
 				idBlog = Integer.parseInt(request.getParameter("idBlog")) ;	
 				pubColaborativa.setIdPublicacao( Integer.parseInt(request.getParameter("idPublicacao")));
 				pubColaborativa.setTituloPublicacao(request.getParameter("tituloPublicacao"));
 				pubColaborativa.setCategoriaPublicacao(request.getParameter(request.getParameter("categoriaPublicacao")));
 				pubColaborativa.setConteudoPublicacao(request.getParameter(request.getParameter("conteudoPublicacao")));
-				
 				subDAO.AprovarPublicacao(idBlog, pubColaborativa);
 				System.out.println("aprovar");
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);
-				break;	
+				break;
+			case "ListaComentario":
+				
+				idBlog = Integer.parseInt(request.getParameter("idBlog")) ;	
+					
+				
+				
+				break;
 				
 			default:
 				break;
