@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdk.nashorn.internal.runtime.ListAdapter;
 
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
