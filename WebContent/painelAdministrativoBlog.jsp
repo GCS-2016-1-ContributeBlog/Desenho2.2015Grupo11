@@ -38,6 +38,7 @@
                                 <div class="col-xs-6 col-md-6">
                                     <a href="ServletBlog?acao=ListarPublicacoes&idBlog=${idBlog}" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <h6><br/>Ver Publicacoes</h6></a>
                                     <a href="ServletSubmissao?acao=AprovarPublicacoes&idBlog=${idBlog}" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-file"></span> <h6><br/>Aprovar Publicações Colaborativas</h6></a>
+                          
                                 </div>
                             </div>
                         </div>

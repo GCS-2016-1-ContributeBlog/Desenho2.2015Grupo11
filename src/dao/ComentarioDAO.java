@@ -79,6 +79,34 @@ public class ComentarioDAO extends ConnectionFactory{
 		}
 		return listaComentario;
 	}
+	public List<Comentario> listarComentarioBlogDelete(String idBlog) {
+		List<Comentario> listaComentario = new ArrayList<Comentario>();
+		try {
+			Connection conexao = getConexao();
+			Statement stm = conexao.createStatement();
+			ResultSet rs = stm.executeQuery("select * from Comentario where idBlog" + idBlog);
+			
+			while (rs.next()) {
+				Comentario comentario = new Comentario();
+				comentario.setIdComentario(rs.getInt("idComentario"));
+				System.out.println(comentario.getIdComentario());
+				comentario.setConteudoComentario(rs.getString("conteudoComentario"));
+				comentario.setUtilizadorComentario(rs.getString("idUtilizador"));
+				System.out.println(comentario.getConteudoComentario());
+				listaComentario.add(comentario);
+				
+			}
+			stm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listaComentario;
+	}
+	
+	
+	
+	
 	
 	
 	
