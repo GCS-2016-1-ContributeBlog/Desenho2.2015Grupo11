@@ -71,10 +71,12 @@ public class ServletComentario extends HttpServlet{
 				
 			case "ListarComentarioDelete":
 				String idPostagem = request.getParameter("idPostagem");
+				String idBlog = request.getParameter("idBlog");
 				comentarios = comentarioDAO.listarComentarioBlog(idPostagem);
 				request.setAttribute("comentarios", comentarios);
 				this.rd = request.getRequestDispatcher("deletarComentario.jsp");
 				this.rd.forward(request, response);	
+				
 				break;
 			case "ExcluirComentario":
 				String idComentario = request.getParameter("idComentario");

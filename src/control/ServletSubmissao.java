@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Blog;
+import model.Comentario;
 import model.Publicacao;
 import model.PublicacaoColaborativa;
 import dao.ColaboracaoDAO;
+import dao.ComentarioDAO;
 
 /**
  * Servlet implementation class ServletSubmissao
@@ -98,10 +100,12 @@ public class ServletSubmissao extends HttpServlet {
 				this.rd.forward(request, response);
 				break;
 			case "ListaComentario":
-				
-				idBlog = Integer.parseInt(request.getParameter("idBlog")) ;	
-					
-				
+				ComentarioDAO comentarioDAO = new ComentarioDAO();				
+				String idPostagem = request.getParameter("idPostagem");
+				List<Comentario> comentarios = comentarioDAO.listarComentarioBlog(idPostagem);
+				request.setAttribute("comentarios", comentarios);
+				this.rd = request.getRequestDispatcher("deletarComentario.jsp");
+				this.rd.forward(request, response);	
 				
 				break;
 				
