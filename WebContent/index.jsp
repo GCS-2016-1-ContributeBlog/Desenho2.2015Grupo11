@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!--
 	Spectral by HTML5 UP
 	html5up.net | @n33co
@@ -39,9 +40,20 @@
 								<li class="special">
 									<a href="ServletBlog?acao=Listar" class=""><span>Listar Blogs</span></a>
 								</li>
-								<li class="special">
-									<a href="ServletDenuncia?acao=ListarDenuncia" class=""><span>Listar Denuncias</span></a>
-								</li>
+								
+								<c:choose>
+								    <c:when test="${utilizador.apelido != 'admin' }">
+								      <li>
+								      </li>
+								    </c:when>
+								    <c:otherwise>
+								      <li class="special">
+										<a href="ServletDenuncia?acao=ListarDenuncia" class=""><span>Listar Denuncias</span></a>
+									</li>
+								    </c:otherwise>
+								 </c:choose>
+									
+			
 								<li class="special">
 									<a href="utilizador.jsp" class=""><span>Cadastre-se</span></a>
 								</li>
