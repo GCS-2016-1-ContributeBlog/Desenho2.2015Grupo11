@@ -51,6 +51,7 @@ public class ServletDenuncia extends HttpServlet{
 			switch(acao){
 			case "CriarDenunciaBlog":
 				denunciaBlog.setConteudoDenuncia(request.getParameter("conteudoDenuncia"));
+				System.out.println(request.getParameter("conteudoDenuncia"));
 				utilizador.setId(Integer.parseInt(request.getParameter("idUtilizador")));
 				int idBlog = Integer.parseInt(request.getParameter("idBlog"));
 				denunciaBlogDAO.criarDenuncia(idBlog, denunciaBlog, utilizador);
@@ -71,7 +72,8 @@ public class ServletDenuncia extends HttpServlet{
 			case "CriarDenunciaPublicacao":
 				denunciaPublicacao.setConteudoDenuncia(request.getParameter("conteudoDenuncia"));
 				utilizador.setId(Integer.parseInt(request.getParameter("idUtilizador")));
-				int idPublicacao = Integer.parseInt(request.getParameter("idPublicacao"));
+				int idPublicacao = Integer.parseInt(request.getParameter("idBlog"));
+				System.out.println(request.getParameter("idBlog"));
 				denunciaPublicacaoDAO.criarDenuncia(idPublicacao, denunciaPublicacao, utilizador);
 				
 				this.rd = request.getRequestDispatcher("index.jsp");

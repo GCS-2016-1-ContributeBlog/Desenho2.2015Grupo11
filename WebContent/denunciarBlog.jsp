@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" action="ServletDenuncia?acao=CriarDenunciaBlog">
-		<input type="hidden" name="idUtilizador" id="idutilizador" class="form-control input-sm" value="${utilizador.id}" placeholder="ID" required>
+	<form method="post" action="ServletDenuncia?acao=CriarDenunciaBlog&idBlog=${idBlog}">
+		<input  name="idUtilizador" id="idutilizador" class="form-control input-sm" value="${utilizador.id}" placeholder="ID" required>
 		<label>Conteudo</label><br />
-		<input type="hidden" name="idBlog" id="idBlog" value="${idBlog}">
+		<input  name="idBlog" id="idBlog" value="${idBlog}">
 		<textarea class="form-control" maxlength="150" rows="3" name="conteudoDenuncia" id="conteudo" 
 			value="${denuncia.conteudoDenuncia}" placeholder="Escreva a denuncia aqui" required></textarea><br/>
 		<input type="submit" value="Enviar" class="btn btn-info btn-sm">
