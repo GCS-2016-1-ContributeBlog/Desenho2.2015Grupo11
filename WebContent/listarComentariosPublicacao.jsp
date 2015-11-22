@@ -46,12 +46,17 @@
                                 </div>
                                 <div class="comment-text">
                                     ${comentario.conteudoComentario}<br/>
-                                </div>
+                                </div>     
+                                    <div class="action">
+                                     <c:if test="${utilizador.apelido == comentario.utilizadorComentario}">
+                                    <a href="ServletComentario?acao=ExcluirComentario&idComentario=${comentario.idComentario}" class="btn btn-danger btn-xs" >Excluir Publicacao</a>
+                                   </c:if>
+                                    </div>
                             </div>
                         </div>
-                         </c:forEach>
                     </li>
                 </ul>
+            </c:forEach>
                 <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> Mais</a>
             </div>
         </div>
