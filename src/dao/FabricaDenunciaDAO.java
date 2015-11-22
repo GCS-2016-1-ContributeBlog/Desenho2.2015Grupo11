@@ -12,8 +12,7 @@ public interface FabricaDenunciaDAO {
 	//Denuncia denuncia;
 	
 	void criarDenuncia(int id, Denuncia denuncia, Utilizador utilizador);
-	public List<Denuncia> listarDenuncia ();
-	public void excluirDenuncia(String idDenuncia);
+	
 	
 	
 }

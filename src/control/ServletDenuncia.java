@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.sun.org.apache.xalan.internal.xsltc.compiler.Parser;
 
 import dao.BlogDAO;
+import dao.DenunciaBlogDAO;
+import dao.DenunciaPublicacaoDAO;
 import dao.FabricaDenunciaBlogDAO;
 import dao.FabricaDenunciaPublicacaoDAO;
 import model.Blog;
@@ -39,8 +41,10 @@ public class ServletDenuncia extends HttpServlet{
 		
 		DenunciaBlog denunciaBlog = new DenunciaBlog();
 		DenunciaPublicacao denunciaPublicacao = new DenunciaPublicacao();
-		FabricaDenunciaBlogDAO denunciaBlogDAO = new FabricaDenunciaBlogDAO();
-		FabricaDenunciaPublicacaoDAO denunciaPublicacaoDAO = new FabricaDenunciaPublicacaoDAO();
+		FabricaDenunciaBlogDAO fabricaDenunciaBlogDAO = new FabricaDenunciaBlogDAO();
+		DenunciaBlogDAO denunciaBlogDAO = new DenunciaBlogDAO();
+		FabricaDenunciaPublicacaoDAO fabricaDenunciaPublicacaoDAO = new FabricaDenunciaPublicacaoDAO();
+		DenunciaPublicacaoDAO denunciaPublicacaoDAO = new DenunciaPublicacaoDAO();
 		Utilizador utilizador = new Utilizador();
 		Blog blog = new Blog();
 		List<Denuncia> listaDenunciaBlog = new ArrayList<>();
@@ -54,7 +58,7 @@ public class ServletDenuncia extends HttpServlet{
 				System.out.println(request.getParameter("conteudoDenuncia"));
 				utilizador.setId(Integer.parseInt(request.getParameter("idUtilizador")));
 				int idBlog = Integer.parseInt(request.getParameter("idBlog"));
-				denunciaBlogDAO.criarDenuncia(idBlog, denunciaBlog, utilizador);
+				fabricaDenunciaBlogDAO.criarDenuncia(idBlog, denunciaBlog, utilizador);
 				
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);
@@ -71,10 +75,10 @@ public class ServletDenuncia extends HttpServlet{
 		
 			case "CriarDenunciaPublicacao":
 				denunciaPublicacao.setConteudoDenuncia(request.getParameter("conteudoDenuncia"));
+				System.out.println(denunciaPublicacao.getConteudoDenuncia());
 				utilizador.setId(Integer.parseInt(request.getParameter("idUtilizador")));
-				int idPublicacao = Integer.parseInt(request.getParameter("idBlog"));
-				System.out.println(request.getParameter("idBlog"));
-				denunciaPublicacaoDAO.criarDenuncia(idPublicacao, denunciaPublicacao, utilizador);
+				int idPublicacao = Integer.parseInt(request.getParameter("idPublicacao"));
+				fabricaDenunciaPublicacaoDAO.criarDenuncia(idPublicacao, denunciaPublicacao, utilizador);
 				
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);
@@ -123,7 +127,7 @@ public class ServletDenuncia extends HttpServlet{
 				System.out.println("Excluir");
 				idDenuncia = request.getParameter("idDenuncia");
 				System.out.println(idDenuncia);
-				FabricaDenunciaBlogDAO denunciaDAO = new FabricaDenunciaBlogDAO();
+				DenunciaBlogDAO denunciaDAO = new DenunciaBlogDAO();
 				
 					BlogDAO blogDao = new BlogDAO();
 		
