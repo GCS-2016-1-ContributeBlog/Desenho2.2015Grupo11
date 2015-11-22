@@ -75,22 +75,28 @@ public class FabricaDenunciaBlogDAO extends ConnectionFactory implements Fabrica
 		}
 	}
 	
-	public Denuncia excluirBlogDenuncia(String idDenuncia) {
-		Denuncia denuncia = new Denuncia();
+	public Denuncia pesquisaBlogDenuncia(String idDenuncia) {
+	
+		Denuncia denunciaBlog = new Denuncia();
 		try {
 			Connection conexao = getConexao();
 			Statement stm = conexao.createStatement();
-			ResultSet rs = stm.executeQuery("Select from Denuncia where idDenuncia ="+idDenuncia);
+			ResultSet rs = stm.executeQuery("Select * from Denuncia where idDenuncia ="+idDenuncia);
 			
 			while (rs.next()) {
-				denuncia.setIdBlog(rs.getInt("idBlog"));
+				
+				denunciaBlog.setIdDenuncia(rs.getInt("idDenuncia"));
+				denunciaBlog.setConteudoDenuncia(rs.getString("conteudoDenuncia"));
+				denunciaBlog.setIdBlog( rs.getInt("idBlog"));
 			}
+			
+			
 			
 			stm.close();
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return denuncia;
+		return denunciaBlog;
 	}
 }

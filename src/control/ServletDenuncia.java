@@ -101,13 +101,18 @@ public class ServletDenuncia extends HttpServlet{
 			case "ExcluirDenunciaBlog":
 				String idDenuncia = request.getParameter("idDenuncia");				
 				denunciaBlogDAO.excluirDenuncia(idDenuncia);
-				this.rd = request.getRequestDispatcher("ServletDenuncia?acao=ListarDenuncia");
+				
+				
+				
 				this.rd.forward(request, response);
 				
 			break;
 			
 			case "ExcluirDenunciaPublicacao":
-				idDenuncia = request.getParameter("idDenuncia");				
+				
+				idDenuncia = request.getParameter("idDenuncia");
+				
+								
 				denunciaPublicacaoDAO.excluirDenuncia(idDenuncia);
 				this.rd = request.getRequestDispatcher("ServletDenuncia?acao=ListarDenuncia");
 				this.rd.forward(request, response);
@@ -115,14 +120,26 @@ public class ServletDenuncia extends HttpServlet{
 			break;
 			
 			case "ExcluirBlogDenuncia":
+				System.out.println("Excluir");
 				idDenuncia = request.getParameter("idDenuncia");
-				
+				System.out.println(idDenuncia);
 				FabricaDenunciaBlogDAO denunciaDAO = new FabricaDenunciaBlogDAO();
-				BlogDAO blogDAO = new BlogDAO();
 				
-				Denuncia denuncia = denunciaDAO.excluirBlogDenuncia(idDenuncia);
-				System.out.println(denuncia.getIdBlog());
-				blogDAO.excluir(Integer.toString(denuncia.getIdBlog()));
+					BlogDAO blogDao = new BlogDAO();
+		
+				
+				Denuncia denuncia = denunciaDAO.pesquisaBlogDenuncia(idDenuncia);
+				
+				//System.out.println(denuncia.getIdBlog());
+				System.out.println(denuncia.getConteudoDenuncia());
+				
+				
+				System.out.println("Aint"+denuncia.getIdBlog());
+				
+				
+				
+				blogDao.excluir( String.valueOf(denuncia.getIdBlog()));
+				
 				this.rd = request.getRequestDispatcher("index.jsp");
 				this.rd.forward(request, response);
 				
