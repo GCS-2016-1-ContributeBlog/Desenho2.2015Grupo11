@@ -49,7 +49,7 @@
                                 </div>     
                                     <div class="action">
                                      <c:if test="${utilizador.apelido == comentario.utilizadorComentario}">
-                                    <a href="ServletComentario?acao=ExcluirComentario&idComentario=${comentario.idComentario}" class="btn btn-danger btn-xs" >Excluir Publicacao</a>
+                                    <a href="ServletComentario?acao=ExcluirComentario&idComentario=${comentario.idComentario}" class="btn btn-danger btn-xs" >Excluir Comentário</a>
                                    </c:if>
                                     </div>
                             </div>
