@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/karine/Desenho2.2015Grupo11","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/karine/Desenho2.2015Grupo11","disabled":false,"__vagrantfile":true},"v-csc-e4cfd3704":{"id":"v-csc-e4cfd3704","guestpath":"/tmp/vagrant-chef/b62a54a3ed2d9e50c651e0cc0706720f/cookbooks","hostpath":"/home/karine/Desenho2.2015Grupo11/cookbooks","disabled":false,"__vagrantfile":true}}}

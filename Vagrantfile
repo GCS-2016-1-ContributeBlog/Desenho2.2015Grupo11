@@ -7,6 +7,16 @@
 # you're doing.
 Vagrant.configure(2) do |config|
 	config.vm.box = "hashicorp/precise32"
+
+	config.vm.provision "shell", :inline => "sudo apt-get update -y"
+	config.vm.provision "shell", :inline => "sudo apt-get install curl -y"
+	config.vm.provision "shell", :inline => "curl -L https://www.opscode.com/chef/install.sh | sudo bash"
+
+ 	config.vm.provision :chef_solo do |chef|
+		chef.cookbooks_path = ["cookbooks"]
+		chef.add_recipe "vim"
+		chef.add_recipe "git"
+	end
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
