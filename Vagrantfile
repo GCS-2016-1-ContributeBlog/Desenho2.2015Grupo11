@@ -12,12 +12,27 @@ Vagrant.configure(2) do |config|
 	config.vm.provision "shell", :inline => "sudo apt-get install curl -y"
 	config.vm.provision "shell", :inline => "curl -L https://www.opscode.com/chef/install.sh | sudo bash"
  	config.vm.provision :chef_solo do |chef|
-		chef.cookbooks_path = ["cookbooks"]
-		chef.add_recipe "vim"
-		chef.add_recipe "git"
+
+     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+	chef.add_recipe "vim"
+	#chef.add_recipe "java_se"
+	chef.add_recipe "java"
+	chef.add_recipe "tomcat7"
+
+  		chef.json = {
+  			"java" => {
+                    "install_flavor" => "oracle",
+    				"java_home" => "/foo/java",
+                    "oracle" => {
+                        "accept_oracle_download_terms" => true
+                    }
+            	}
+		}
+
 	end
-	# Install blablablablaballbalba
-	config.vm.provision :shell, path: "script.sh"
+
+  # Iinstalls project dependencies
+    config.vm.provision :shell, path: "script.sh"
 
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
