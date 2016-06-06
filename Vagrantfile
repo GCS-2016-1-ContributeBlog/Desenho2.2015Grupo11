@@ -8,6 +8,9 @@
 Vagrant.configure(2) do |config|
 	config.vm.box = "precise32"
 
+     # Allow accessing "localhost:8080" to access port 80 on the guest machine.
+     config.vm.network "forwarded_port", guest: 80, host: 8080
+
 	config.vm.provision "shell", :inline => "sudo apt-get update -y"
 	config.vm.provision "shell", :inline => "sudo apt-get install curl -y"
 	config.vm.provision "shell", :inline => "curl -L https://www.opscode.com/chef/install.sh | sudo bash"

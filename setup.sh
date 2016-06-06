@@ -13,8 +13,10 @@ sudo apt-get install vagrant
 ##Imagem de Box 
 sudo vagrant box add precise32 http://files.vagrantup.com/precise32.box
 
+#subindo configs da box 
+vagrant provision
+
 #Subindo box
 vagrant up
 
-#subindo configs da box 
-vagrant provision
+

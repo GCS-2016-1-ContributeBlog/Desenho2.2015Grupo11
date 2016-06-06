@@ -1,13 +1,11 @@
 language: java
 
+script: mvn package
+
 jdk:
   - oraclejdk8
-
-notification:
-	email:
-	   recipients:
-		- muriloduartegoncalves@hotmail.com
+  - oraclejdk7
 
 branches:
-	only: 
+	only:
 	- master
