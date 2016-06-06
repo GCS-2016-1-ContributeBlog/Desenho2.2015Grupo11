@@ -7,5 +7,5 @@ jdk:
   - oraclejdk7
 
 branches:
-	only:
-	- master
+  only:
+    - master
