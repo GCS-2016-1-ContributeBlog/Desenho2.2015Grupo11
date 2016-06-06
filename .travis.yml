@@ -2,6 +2,10 @@ language: java
 
 script: mvn package
 
+env:
+  global:
+    - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
 jdk:
   - oraclejdk8
   - oraclejdk7
@@ -9,3 +13,5 @@ jdk:
 branches:
   only:
     - master
+
+
