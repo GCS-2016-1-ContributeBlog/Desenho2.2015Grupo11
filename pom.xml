@@ -1,48 +1,188 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>Desenho2.2015Grupo11</groupId>
   <artifactId>Desenho2.2015Grupo11</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-<dependencies>
-   <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.0.1</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <weld.version>2.1.2.Final</weld.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>br.com.caelum</groupId>
+      <artifactId>vraptor</artifactId>
+      <version>4.2.0-RC3</version> <!--or the latest version -->
+    </dependency>
+
+    <dependency>
+        <groupId>br.com.caelum.vraptor</groupId>
+        <artifactId>vraptor-i18n</artifactId>
+        <version>4.0.1</version> <!-- or latest version -->
+        <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.3-1100-jdbc41</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.weld.servlet</groupId>
+      <artifactId>weld-servlet-core</artifactId>
+      <version>${weld.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.weld</groupId>
+      <artifactId>weld-core-impl</artifactId>
+      <version>${weld.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.el</groupId>
+      <artifactId>el-api</artifactId>
+      <version>2.2</version>
       <scope>provided</scope>
     </dependency>
-      <dependency>
-  <groupId>javax.xml</groupId>
-  <artifactId>jaxb-impl</artifactId>
-  <version>2.1</version>
-</dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator-cdi</artifactId>
+      <version>5.1.1.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>br.com.caelum.vraptor</groupId>
+      <artifactId>vraptor-jpa</artifactId>
+      <version>4.0.2</version> <!-- or the latest version -->
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>4.3.0.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>4.3.0.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-email</artifactId>
+      <version>1.4</version>
+    </dependency>
+
+    <!-- libs for test -->
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>1.10.19</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib-nodep</artifactId>
+      <version>2.2.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.objenesis</groupId>
+      <artifactId>objenesis</artifactId>
+      <version>2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.easymock</groupId>
+      <artifactId>easymock</artifactId>
+      <version>3.3.1</version>
+
+    </dependency>
+
   </dependencies>
+
   <build>
-    <sourceDirectory>src</sourceDirectory>
+    <finalName>Urutau</finalName>
+    <outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
     <plugins>
       <plugin>
-        <artifactId>ContributeBlog</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
         </configuration>
       </plugin>
+
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>2.3</version>
+        <version>2.4</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8</version>
         <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
+          <skip>true</skip>
         </configuration>
       </plugin>
+
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.9</version>
         <configuration>
-            <source>1.7</source>
-            <target>1.7</target>
+          <downloadSources>true</downloadSources>
+          <downloadJavadocs>true</downloadJavadocs>
+          <wtpversion>2.0</wtpversion>
+          <ajdtVersion>none</ajdtVersion>
         </configuration>
-    </plugin>
+      </plugin>
     </plugins>
   </build>
+
 </project>
