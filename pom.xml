@@ -1,8 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <modelVersion>4.0.0</modelVersion>
   <groupId>Desenho2.2015Grupo11</groupId>
   <artifactId>Desenho2.2015Grupo11</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -12,26 +10,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <weld.version>2.1.2.Final</weld.version>
   </properties>
-
-  <dependencies>
-    <dependency>
-      <groupId>br.com.caelum</groupId>
-      <artifactId>vraptor</artifactId>
-      <version>4.2.0-RC3</version> <!--or the latest version -->
-    </dependency>
-
-    <dependency>
-        <groupId>br.com.caelum.vraptor</groupId>
-        <artifactId>vraptor-i18n</artifactId>
-        <version>4.0.1</version> <!-- or latest version -->
-        <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>9.3-1100-jdbc41</version>
-    </dependency>
 
     <dependency>
       <groupId>org.jboss.weld.servlet</groupId>
@@ -56,12 +34,6 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator-cdi</artifactId>
       <version>5.1.1.Final</version>
-    </dependency>
-
-    <dependency>
-      <groupId>br.com.caelum.vraptor</groupId>
-      <artifactId>vraptor-jpa</artifactId>
-      <version>4.0.2</version> <!-- or the latest version -->
     </dependency>
 
     <dependency>
@@ -138,7 +110,7 @@
   </dependencies>
 
   <build>
-    <finalName>Urutau</finalName>
+    <finalName>Desenho2.2015Grupo11</finalName>
     <outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
     <plugins>
       <plugin>
