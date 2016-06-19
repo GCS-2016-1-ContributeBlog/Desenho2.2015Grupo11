@@ -10,14 +10,17 @@ Vagrant.configure(2) do |config|
 
 	config.vm.provision "shell", :inline => "sudo apt-get update -y"
 	config.vm.provision "shell", :inline => "sudo apt-get install curl -y"
-	config.vm.provision "shell", :inline => "curl -L https://www.opscode.com/chef/install.sh | sudo bash"
+#	config.vm.provision "shell", :inline => "curl -L https://www.opscode.com/chef/install.sh | sudo bash"
+
+    config.omnibus.chef_version = "12.10.24"
 
  	config.vm.provision :chef_solo do |chef|
+		
 		chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
 		chef.add_recipe "vim"
 		#chef.add_recipe "java_se"
-		chef.add_recipe "java"
-		chef.add_recipe "tomcat7"
+		#chef.add_recipe "java"
+		#chef.add_recipe "tomcat7"
 
 
 		chef.json = {
