@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-	config.vm.box = "precise32"
+	config.vm.box = "hashicorp/precise32"
 
      # Allow accessing "localhost:8080" to access port 80 on the guest machine.
        config.vm.network "forwarded_port", guest: 80, host: 8080
@@ -14,7 +14,6 @@ Vagrant.configure(2) do |config|
 	config.vm.provision "shell", :inline => "sudo apt-get update -y"
 	config.vm.provision "shell", :inline => "sudo apt-get install curl -y"
 
-#	config.vm.provision "shell", :inline => "curl -L https://www.opscode.com/chef/install.sh | sudo bash"
 
        config.omnibus.chef_version = "12.10.24"
 
@@ -22,9 +21,6 @@ Vagrant.configure(2) do |config|
 
 		chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
 		chef.add_recipe "vim"
-		#chef.add_recipe "java_se"
-		#chef.add_recipe "apt"
-		#chef.add_recipe "compat_resource"
 		chef.add_recipe "java"
 		chef.add_recipe "tomcat7"
 		chef.add_recipe "mysql::server"

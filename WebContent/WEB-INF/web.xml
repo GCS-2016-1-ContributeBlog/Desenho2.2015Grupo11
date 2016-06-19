@@ -4,3 +4,12 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
+
+<plugin>            
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-war-plugin</artifactId>
+  <configuration>
+    <webXml>src\main\webapp\WEB-INF\web.xml</webXml>        
+  </configuration>
+</plugin>
+
