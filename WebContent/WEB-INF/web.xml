@@ -5,11 +5,10 @@
   </welcome-file-list>
 </web-app>
 
-<plugin>            
-  <groupId>org.apache.maven.plugins</groupId>
+<plugin>
   <artifactId>maven-war-plugin</artifactId>
+  <version>2.6</version>
   <configuration>
-    <webXml>WebContent\WEB-INF\web.xml</webXml>        
+    <failOnMissingWebXml>false</failOnMissingWebXml>
   </configuration>
 </plugin>
-
