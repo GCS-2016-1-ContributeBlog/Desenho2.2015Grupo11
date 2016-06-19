@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
 		#chef.add_recipe "apt"
 		#chef.add_recipe "compat_resource"
 		chef.add_recipe "java"
-		#chef.add_recipe "tomcat7"
+		chef.add_recipe "tomcat7"
 
 
 		chef.json = {
