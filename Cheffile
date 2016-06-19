@@ -3,5 +3,3 @@
 
 site 'https://supermarket.getchef.com/api/v
 
-cookbook 'vim', '~> 1.1.2'
-cookbook 'git', '~> 4.2.2'

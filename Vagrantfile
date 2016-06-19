@@ -9,32 +9,45 @@ Vagrant.configure(2) do |config|
 	config.vm.box = "precise32"
 
      # Allow accessing "localhost:8080" to access port 80 on the guest machine.
-     config.vm.network "forwarded_port", guest: 80, host: 8080
+       config.vm.network "forwarded_port", guest: 80, host: 8080
 
 	config.vm.provision "shell", :inline => "sudo apt-get update -y"
 	config.vm.provision "shell", :inline => "sudo apt-get install curl -y"
-	config.vm.provision "shell", :inline => "curl -L https://www.opscode.com/chef/install.sh | sudo bash"
+
+#	config.vm.provision "shell", :inline => "curl -L https://www.opscode.com/chef/install.sh | sudo bash"
+
+       config.omnibus.chef_version = "12.10.24"
+
  	config.vm.provision :chef_solo do |chef|
 
-     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
-	chef.add_recipe "vim"
-	#chef.add_recipe "java_se"
-	chef.add_recipe "java"
-	chef.add_recipe "tomcat7"
+		chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+		chef.add_recipe "vim"
+		#chef.add_recipe "java_se"
+		#chef.add_recipe "apt"
+		#chef.add_recipe "compat_resource"
+		chef.add_recipe "java"
+		chef.add_recipe "tomcat7"
+		chef.add_recipe "mysql::server"
 
-  		chef.json = {
-  			"java" => {
-                    "install_flavor" => "oracle",
-    				"java_home" => "/foo/java",
-                    "oracle" => {
-                        "accept_oracle_download_terms" => true
-                    }
-            	}
+		chef.json = {
+			"java" => {
+                "install_flavor" => "oracle",
+				"jdk_version" => "7",
+                "oracle" => {
+                    "accept_oracle_download_terms" => true
+                }
+        	},
+			:mysql=> {
+		        :client => { :version => "5.5.28" },
+		        :server_root_password => "root",
+		        :server_repl_password => "no_replication",
+		        :server_debian_password => "root"
+	       	}
+
 		}
 
 	end
 
-  # Iinstalls project dependencies
     config.vm.provision :shell, path: "script.sh"
 
   # The most common configuration options are documented and commented below.
