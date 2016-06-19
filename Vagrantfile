@@ -23,6 +23,7 @@ Vagrant.configure(2) do |config|
 		#chef.add_recipe "compat_resource"
 		chef.add_recipe "java"
 		chef.add_recipe "tomcat7"
+		chef.add_recipe "mysql::server"
 
 
 		chef.json = {
@@ -32,7 +33,13 @@ Vagrant.configure(2) do |config|
                 "oracle" => {
                     "accept_oracle_download_terms" => true
                 }
-        	}
+        	},
+			:mysql=> {
+		        :client => { :version => "5.5.28" },
+		        :server_root_password => "root",
+		        :server_repl_password => "no_replication",
+		        :server_debian_password => "root"
+	      	}
 		}
 	end
 
