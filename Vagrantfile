@@ -19,14 +19,16 @@ Vagrant.configure(2) do |config|
 		chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
 		chef.add_recipe "vim"
 		#chef.add_recipe "java_se"
-		#chef.add_recipe "java"
+		#chef.add_recipe "apt"
+		#chef.add_recipe "compat_resource"
+		chef.add_recipe "java"
 		#chef.add_recipe "tomcat7"
 
 
 		chef.json = {
 			"java" => {
                 "install_flavor" => "oracle",
-				"java_home" => "/foo/java",
+				"jdk_version" => "7",
                 "oracle" => {
                     "accept_oracle_download_terms" => true
                 }
