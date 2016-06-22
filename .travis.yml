@@ -1,6 +1,8 @@
 language: java
 
-script: mvn clean verify
+script: mvn clean verify 
+script: mvn package
+script: mvn test
 
 env:
   global:
