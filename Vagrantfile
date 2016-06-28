@@ -6,7 +6,8 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-	config.vm.box = "hashicorp/precise32"
+	config.vm.box = "precise32"
+	config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
      # Allow accessing "localhost:8080" to access port 80 on the guest machine.
      #  config.vm.network "forwarded_port", guest: 80, host: 8080
