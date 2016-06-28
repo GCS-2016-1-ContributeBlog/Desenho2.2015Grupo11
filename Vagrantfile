@@ -48,7 +48,7 @@ Vagrant.configure(2) do |config|
 
 	end
 
-   # config.vm.provision :shell, path: "script.sh"
+   config.vm.provision "shell", path: "script.sh"
 
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
