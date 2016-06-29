@@ -1,23 +1,22 @@
 #!/bin/bash
-
-#Atualizando libs
+echo -e "\nUpdating the package list\n"
 sudo apt-get update
 
-#Instalando Virtual Box
+echo -e "\nInstalling Virtual Box\n"
 sudo apt-get install virtualbox
 sudo apt-get install virtualbox-dkms
 
-#Instalando Vagrant
+echo -e "\nInstalling Vagrant\n"
 sudo apt-get install vagrant
 
-#Imagem de Box (ubuntu 14.04 32Bits)
+echo -e "\nImage Box (Ubuntu 14.04 32-bit)\n"
 sudo vagrant box add precise32 http://files.vagrantup.com/precise32.box
 
-#Instalando o CHEF
+echo -e "\nInstalling CHEF\n"
 sudo vagrant plugin install vagrant-omnibus
 
-#Subindo box
+echo -e "\nUp box\n"
 vagrant up
 
-#subindo configs da box
+echo -e "\nConfigs up the box\n"
 vagrant provision
